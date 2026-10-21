@@ -1,0 +1,34 @@
+@import "tailwindcss";
+
+:root { --background: #fffdf8; --foreground: #172b36; }
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Inter", "Segoe UI", sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--background); color: var(--foreground); }
+::selection { background: #bce5df; color: #073b3a; }
+.section-shell { @apply mx-auto max-w-7xl px-5 lg:px-8; }
+.eyebrow { @apply text-xs font-bold uppercase tracking-[0.22em] text-[#0d6d67]; }
+.travely-marker { background: transparent; border: 0; }
+.travely-marker span { display: block; width: 28px; height: 28px; border: 5px solid white; border-radius: 999px 999px 999px 4px; background: #e96536; box-shadow: 0 8px 18px rgb(15 23 42 / .25); transform: rotate(-45deg); }
+.leaflet-container { z-index: 0; font-family: "Inter", "Segoe UI", sans-serif; }
+.leaflet-container:focus-visible { outline: 3px solid #0d6d67; outline-offset: -3px; }
+.travely-map-controls { display: grid; overflow: hidden; border: 1px solid rgb(255 255 255 / .8); border-radius: 14px; background: rgb(255 255 255 / .96); box-shadow: 0 10px 30px rgb(15 23 42 / .18); }
+.leaflet-bottom.leaflet-right .travely-map-controls { margin-right: 14px; margin-bottom: 34px; }
+.travely-map-controls button { display: grid; width: 46px; height: 46px; place-items: center; border: 0; border-bottom: 1px solid #e2e8f0; background: transparent; color: #123a50; cursor: pointer; transition: background-color .18s ease, color .18s ease; }
+.travely-map-controls button span { font-size: 24px; font-weight: 600; line-height: 1; }
+.travely-map-controls button:last-child { border-bottom: 0; }
+.travely-map-controls button:hover, .travely-map-controls button:focus-visible { background: #0d6d67; color: white; outline: none; }
+.travely-map-hint { position: absolute; left: 14px; bottom: 34px; z-index: 450; max-width: calc(100% - 90px); border: 1px solid rgb(255 255 255 / .7); border-radius: 999px; background: rgb(7 31 45 / .82); padding: 8px 12px; color: white; box-shadow: 0 8px 24px rgb(15 23 42 / .16); font-size: 11px; font-weight: 700; letter-spacing: .01em; backdrop-filter: blur(8px); }
+@media (pointer: coarse) {
+  .travely-map-controls button { width: 50px; height: 50px; }
+  .travely-marker span { width: 32px; height: 32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}

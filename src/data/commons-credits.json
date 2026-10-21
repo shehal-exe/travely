@@ -1,0 +1,842 @@
+{
+  "/images/travel/commons/category/beaches.jpg": {
+    "title": "Varkala Promenade",
+    "author": "Sunaina Pai and Susam Pal",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Varkala_Promenade.jpg",
+    "file": "File:Varkala Promenade.jpg"
+  },
+  "/images/travel/commons/category/cities.jpg": {
+    "title": "Mumbai Skyline Marine Drive Night",
+    "author": "Av9",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mumbai_Skyline_Marine_Drive_Night.jpg",
+    "file": "File:Mumbai Skyline Marine Drive Night.jpg"
+  },
+  "/images/travel/commons/category/food-markets.jpg": {
+    "title": "Street Market - Sun Yat-sen Street - Kolkata 2013-03-03 5305",
+    "author": "Biswarup Ganguly",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Street_Market_-_Sun_Yat-sen_Street_-_Kolkata_2013-03-03_5305.JPG",
+    "file": "File:Street Market - Sun Yat-sen Street - Kolkata 2013-03-03 5305.JPG"
+  },
+  "/images/travel/commons/category/heritage.jpg": {
+    "title": "Hawa Mahal east facade (14-07-2022)",
+    "author": "Chainwit.",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hawa_Mahal_east_facade_(14-07-2022).jpg",
+    "file": "File:Hawa Mahal east facade (14-07-2022).jpg"
+  },
+  "/images/travel/commons/category/hill-stations.jpg": {
+    "title": "Tea estates of Munnar",
+    "author": "Kshitij Deo",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tea_estates_of_Munnar.jpg",
+    "file": "File:Tea estates of Munnar.jpg"
+  },
+  "/images/travel/commons/category/mountains.jpg": {
+    "title": "Kanchenjunga View from Pelling Hotel",
+    "author": "Nitin Ticku",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kanchenjunga_View_from_Pelling_Hotel.jpg",
+    "file": "File:Kanchenjunga View from Pelling Hotel.jpg"
+  },
+  "/images/travel/commons/category/nature.jpg": {
+    "title": "White Rann of Kutch",
+    "author": "Rahul Zota",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:White_Rann_of_Kutch.jpg",
+    "file": "File:White Rann of Kutch.jpg"
+  },
+  "/images/travel/commons/category/spiritual.jpg": {
+    "title": "Ganga Aarti at Varanasi in the evening",
+    "author": "Vimalinarc",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ganga_Aarti_at_Varanasi_in_the_evening.jpg",
+    "file": "File:Ganga Aarti at Varanasi in the evening.jpg"
+  },
+  "/images/travel/commons/category/wildlife.jpg": {
+    "title": "One-Horned Rhino at the Kaziranga National Park, Assam",
+    "author": "G Devadarshan Sharma",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:One-Horned_Rhino_at_the_Kaziranga_National_Park,_Assam.jpg",
+    "file": "File:One-Horned Rhino at the Kaziranga National Park, Assam.jpg"
+  },
+  "/images/travel/commons/destination/amritsar.jpg": {
+    "title": "Golden Temple at sunrise, Amritsar",
+    "author": "Smritisethi",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Golden_Temple_at_sunrise,_Amritsar.jpg",
+    "file": "File:Golden Temple at sunrise, Amritsar.jpg"
+  },
+  "/images/travel/commons/destination/bodh-gaya.jpg": {
+    "title": "Mahabodhi Temple, Bodh Gaya, Bihar, India",
+    "author": "Shubhrojit Misra",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mahabodhi_Temple,_Bodh_Gaya,_Bihar,_India.jpg",
+    "file": "File:Mahabodhi Temple, Bodh Gaya, Bihar, India.jpg"
+  },
+  "/images/travel/commons/destination/darjeeling.jpg": {
+    "title": "PXL 20240323 065728783 Cloud and Tea Garden at Namring Tea Garden Darjeeling West Bengal 734226 01",
+    "author": "Sourabh.biswas003",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:PXL_20240323_065728783_Cloud_and_Tea_Garden_at_Namring_Tea_Garden_Darjeeling_West_Bengal_734226_01.jpg",
+    "file": "File:PXL 20240323 065728783 Cloud and Tea Garden at Namring Tea Garden Darjeeling West Bengal 734226 01.jpg"
+  },
+  "/images/travel/commons/destination/delhi.jpg": {
+    "title": "Lahori Gate with Ramparts - Red Fort - Delhi 2014-05-13 3126",
+    "author": "Biswarup Ganguly",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lahori_Gate_with_Ramparts_-_Red_Fort_-_Delhi_2014-05-13_3126.JPG",
+    "file": "File:Lahori Gate with Ramparts - Red Fort - Delhi 2014-05-13 3126.JPG"
+  },
+  "/images/travel/commons/destination/gangtok.jpg": {
+    "title": "View of Gangtok City from Crown Prince Tenzing Kunzang Namgyal Walkway",
+    "author": "Subhrajyoti07",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:View_of_Gangtok_City_from_Crown_Prince_Tenzing_Kunzang_Namgyal_Walkway.jpg",
+    "file": "File:View of Gangtok City from Crown Prince Tenzing Kunzang Namgyal Walkway.jpg"
+  },
+  "/images/travel/commons/destination/great-rann-of-kutch.jpg": {
+    "title": "Great Rann of Kutch",
+    "author": "Jyoti Chaurasia",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Great_Rann_of_Kutch.jpg",
+    "file": "File:Great Rann of Kutch.jpg"
+  },
+  "/images/travel/commons/destination/guwahati.jpg": {
+    "title": "Sunset in Guwahati",
+    "author": "Kunal Dalui",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sunset_in_Guwahati.JPG",
+    "file": "File:Sunset in Guwahati.JPG"
+  },
+  "/images/travel/commons/destination/hampi.jpg": {
+    "title": "Iconic Stone Chariot @ Vittala Temple, Hampi, Karnataka",
+    "author": "Ram Nagesh Thota",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Iconic_Stone_Chariot_@_Vittala_Temple,_Hampi,_Karnataka.jpg",
+    "file": "File:Iconic Stone Chariot @ Vittala Temple, Hampi, Karnataka.jpg"
+  },
+  "/images/travel/commons/destination/hyderabad.jpg": {
+    "title": "Charminar Hyderabad night view",
+    "author": "Rashid Jorvee",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Charminar_Hyderabad_night_view.jpg",
+    "file": "File:Charminar Hyderabad night view.jpg"
+  },
+  "/images/travel/commons/destination/jodhpur.jpg": {
+    "title": "Jodhpur, India, Old City and Mehrangarh Fort",
+    "author": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Jodhpur,_India,_Old_City_and_Mehrangarh_Fort.jpg",
+    "file": "File:Jodhpur, India, Old City and Mehrangarh Fort.jpg"
+  },
+  "/images/travel/commons/destination/kanyakumari.jpg": {
+    "title": "Vivekananda Rock, Kanyakumari, India",
+    "author": "Adityan Ramkumar Budhisigamani",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Vivekananda_Rock,_Kanyakumari,_India.jpg",
+    "file": "File:Vivekananda Rock, Kanyakumari, India.jpg"
+  },
+  "/images/travel/commons/destination/kaziranga-national-park.jpg": {
+    "title": "Indian rhinoceros in Kaziranga National Park March 2025 by Tisha Mukherjee 02",
+    "author": "Tisha Mukherjee",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Indian_rhinoceros_in_Kaziranga_National_Park_March_2025_by_Tisha_Mukherjee_02.jpg",
+    "file": "File:Indian rhinoceros in Kaziranga National Park March 2025 by Tisha Mukherjee 02.jpg"
+  },
+  "/images/travel/commons/destination/khajuraho.jpg": {
+    "title": "Khajuraho Devi Jagadambi Temple 2010",
+    "author": "Marcin Białek",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Khajuraho_Devi_Jagadambi_Temple_2010.jpg",
+    "file": "File:Khajuraho Devi Jagadambi Temple 2010.jpg"
+  },
+  "/images/travel/commons/destination/kochi.jpg": {
+    "title": "Kochi, Fishing nets, Kerala, India",
+    "author": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kochi,_Fishing_nets,_Kerala,_India.jpg",
+    "file": "File:Kochi, Fishing nets, Kerala, India.jpg"
+  },
+  "/images/travel/commons/destination/kolkata.jpg": {
+    "title": "One evening at Victoria Memorial, Kolkata (11541961206)",
+    "author": "Abhijit Kar Gupta from Kolkata, India",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:One_evening_at_Victoria_Memorial,_Kolkata_(11541961206).jpg",
+    "file": "File:One evening at Victoria Memorial, Kolkata (11541961206).jpg"
+  },
+  "/images/travel/commons/destination/konark-sun-temple.jpg": {
+    "title": "Sun Temple Main Structure, Konark, Orissa",
+    "author": "Subhrajyoti07",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sun_Temple_Main_Structure,_Konark,_Orissa.jpg",
+    "file": "File:Sun Temple Main Structure, Konark, Orissa.jpg"
+  },
+  "/images/travel/commons/destination/madurai.jpg": {
+    "title": "Madurai, India",
+    "author": "Bernard Gagnon",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Madurai,_India.jpg",
+    "file": "File:Madurai, India.jpg"
+  },
+  "/images/travel/commons/destination/manali.jpg": {
+    "title": "Beas river and mountains as seen from Van Vihar, Manali",
+    "author": "Kprateek88",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "https://commons.wikimedia.org/wiki/File:Beas_river_and_mountains_as_seen_from_Van_Vihar,_Manali.jpg",
+    "file": "File:Beas river and mountains as seen from Van Vihar, Manali.jpg"
+  },
+  "/images/travel/commons/destination/mumbai.jpg": {
+    "title": "Panoramic view of Taj Palace Hotel and Taj Tower with the iconic Gateway of India in the background (cropped)",
+    "author": "iMahesh",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Panoramic_view_of_Taj_Palace_Hotel_and_Taj_Tower_with_the_iconic_Gateway_of_India_in_the_background_(cropped).jpg",
+    "file": "File:Panoramic view of Taj Palace Hotel and Taj Tower with the iconic Gateway of India in the background (cropped).jpg"
+  },
+  "/images/travel/commons/destination/munnar.jpg": {
+    "title": "Tea plantations in Munnar - panoramio (3)",
+    "author": "Raman Patel",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Tea_plantations_in_Munnar_-_panoramio_(3).jpg",
+    "file": "File:Tea plantations in Munnar - panoramio (3).jpg"
+  },
+  "/images/travel/commons/destination/mysuru.jpg": {
+    "title": "Mysuru Palace - Night View",
+    "author": "Ingo Mehling",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mysuru_Palace_-_Night_View.jpg",
+    "file": "File:Mysuru Palace - Night View.jpg"
+  },
+  "/images/travel/commons/destination/pelling.jpg": {
+    "title": "Kanchenjunga Peak as viewed from Pelling, Sikkim",
+    "author": "Santhosh.hugar",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kanchenjunga_Peak_as_viewed_from_Pelling,_Sikkim.jpg",
+    "file": "File:Kanchenjunga Peak as viewed from Pelling, Sikkim.jpg"
+  },
+  "/images/travel/commons/destination/puducherry.jpg": {
+    "title": "French Quarter in Pondicherry (9) (37256113950)",
+    "author": "Richard Mortel from Riyadh, Saudi Arabia",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:French_Quarter_in_Pondicherry_(9)_(37256113950).jpg",
+    "file": "File:French Quarter in Pondicherry (9) (37256113950).jpg"
+  },
+  "/images/travel/commons/destination/rishikesh.jpg": {
+    "title": "Sunset - Lakshman Jhula",
+    "author": "Tylersundance",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sunset_-_Lakshman_Jhula.jpg",
+    "file": "File:Sunset - Lakshman Jhula.jpg"
+  },
+  "/images/travel/commons/destination/shillong.jpg": {
+    "title": "Shillong City, Maghalaya",
+    "author": "pchandra191",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Shillong_City,_Maghalaya.jpg",
+    "file": "File:Shillong City, Maghalaya.jpg"
+  },
+  "/images/travel/commons/destination/swaraj-dweep.jpg": {
+    "title": "Radhanagar Beach (Swaraj Dweep), Andaman and Nicobar Island",
+    "author": "Travelira",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Radhanagar_Beach_(Swaraj_Dweep),_Andaman_and_Nicobar_Island.jpg",
+    "file": "File:Radhanagar Beach (Swaraj Dweep), Andaman and Nicobar Island.jpg"
+  },
+  "/images/travel/commons/destination/varkala.jpg": {
+    "title": "Varkala Cliff",
+    "author": "Emmanuel DYAN from Paris, France",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Varkala_Cliff.jpg",
+    "file": "File:Varkala Cliff.jpg"
+  },
+  "/images/travel/commons/destination/ziro-valley.jpg": {
+    "title": "Ziro and its green valley",
+    "author": "Arunachal2007",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ziro_and_its_green_valley.jpg",
+    "file": "File:Ziro and its green valley.jpg"
+  },
+  "/images/travel/commons/gallery/amritsar-2.jpg": {
+    "title": "Golden Temple reflecting in the Sarovar, Amritsar",
+    "author": "Ken Wieland",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Golden_Temple_reflecting_in_the_Sarovar,_Amritsar.jpg",
+    "file": "File:Golden Temple reflecting in the Sarovar, Amritsar.jpg"
+  },
+  "/images/travel/commons/gallery/amritsar-3.jpg": {
+    "title": "Sikh pilgrim at the Golden Temple (Harmandir Sahib) in Amritsar, India",
+    "author": "Paulrudd",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sikh_pilgrim_at_the_Golden_Temple_(Harmandir_Sahib)_in_Amritsar,_India.jpg",
+    "file": "File:Sikh pilgrim at the Golden Temple (Harmandir Sahib) in Amritsar, India.jpg"
+  },
+  "/images/travel/commons/gallery/bodh-gaya-2.jpg": {
+    "title": "Mahabodhi temple complex, Bodhgaya 23",
+    "author": "Rohit Sharma",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mahabodhi_temple_complex,_Bodhgaya_23.jpg",
+    "file": "File:Mahabodhi temple complex, Bodhgaya 23.jpg"
+  },
+  "/images/travel/commons/gallery/bodh-gaya-3.jpg": {
+    "title": "Votive stupas inside Mahabodhi temple premises at Bodh Gaya in Bihar 05",
+    "author": "Amitabha Gupta",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Votive_stupas_inside_Mahabodhi_temple_premises_at_Bodh_Gaya_in_Bihar_05.jpg",
+    "file": "File:Votive stupas inside Mahabodhi temple premises at Bodh Gaya in Bihar 05.jpg"
+  },
+  "/images/travel/commons/gallery/darjeeling-2.jpg": {
+    "title": "Darjeeling, India, Darjeeling city after sunset",
+    "author": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Darjeeling,_India,_Darjeeling_city_after_sunset.jpg",
+    "file": "File:Darjeeling, India, Darjeeling city after sunset.jpg"
+  },
+  "/images/travel/commons/gallery/darjeeling-3.jpg": {
+    "title": "Darjeeling, India, Tea plantations on hills",
+    "author": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Darjeeling,_India,_Tea_plantations_on_hills.jpg",
+    "file": "File:Darjeeling, India, Tea plantations on hills.jpg"
+  },
+  "/images/travel/commons/gallery/delhi-2.jpg": {
+    "title": "Humayun Tomb, Delhi, entrance to the tomb enclosure",
+    "author": "Dennis G. Jarvis",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Humayun_Tomb,_Delhi,_entrance_to_the_tomb_enclosure.jpg",
+    "file": "File:Humayun Tomb, Delhi, entrance to the tomb enclosure.jpg"
+  },
+  "/images/travel/commons/gallery/delhi-3.jpg": {
+    "title": "Lotus Temple Outside View",
+    "author": "Shabeebmts",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Lotus_Temple_Outside_View.JPG",
+    "file": "File:Lotus Temple Outside View.JPG"
+  },
+  "/images/travel/commons/gallery/gangtok-2.jpg": {
+    "title": "Enchey Monastery - Gangtok - Sikkim - India",
+    "author": "Wingedtree",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Enchey_Monastery_-_Gangtok_-_Sikkim_-_India.jpg",
+    "file": "File:Enchey Monastery - Gangtok - Sikkim - India.jpg"
+  },
+  "/images/travel/commons/gallery/gangtok-3.jpg": {
+    "title": "Rumtek Monastery , Dharma Chakra Center, Rumtek, Sikkim",
+    "author": "Ramakrishna Reddy Y",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Rumtek_Monastery_,_Dharma_Chakra_Center,_Rumtek,_Sikkim.jpg",
+    "file": "File:Rumtek Monastery , Dharma Chakra Center, Rumtek, Sikkim.jpg"
+  },
+  "/images/travel/commons/gallery/great-rann-of-kutch-2.jpg": {
+    "title": "The White Desert in Kutch, the great rann of kutch",
+    "author": "Ranjith Kumar Inbasekaran",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:The_White_Desert_in_Kutch,_the_great_rann_of_kutch.jpg",
+    "file": "File:The White Desert in Kutch, the great rann of kutch.jpg"
+  },
+  "/images/travel/commons/gallery/great-rann-of-kutch-3.jpg": {
+    "title": "Sunset at Rann of Kutch, Dhordo, Gujarat",
+    "author": "NandaMunish",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sunset_at_Rann_of_Kutch,_Dhordo,_Gujarat.jpg",
+    "file": "File:Sunset at Rann of Kutch, Dhordo, Gujarat.jpg"
+  },
+  "/images/travel/commons/gallery/guwahati-2.jpg": {
+    "title": "This scenic sunset view is captured over the Brahmaputra River in Guwahati",
+    "author": "পাপৰি বৰা",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:This_scenic_sunset_view_is_captured_over_the_Brahmaputra_River_in_Guwahati.jpg",
+    "file": "File:This scenic sunset view is captured over the Brahmaputra River in Guwahati.jpg"
+  },
+  "/images/travel/commons/gallery/guwahati-3.jpg": {
+    "title": "Kamakhya Temple, Guwahati",
+    "author": "Kunal Dalui",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kamakhya_Temple,_Guwahati.jpg",
+    "file": "File:Kamakhya Temple, Guwahati.jpg"
+  },
+  "/images/travel/commons/gallery/hampi-2.jpg": {
+    "title": "Hampi Virupaksha Temple landscape view",
+    "author": "Abhishek.ujoshi",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hampi_Virupaksha_Temple_landscape_view.jpg",
+    "file": "File:Hampi Virupaksha Temple landscape view.jpg"
+  },
+  "/images/travel/commons/gallery/hampi-3.jpg": {
+    "title": "2 Stone Chariot Lord Vishnu Hindu temple Vitthala Vittala Hampi Karnataka India April 2014",
+    "author": "Jean-Pierre Dalbéra",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:2_Stone_Chariot_Lord_Vishnu_Hindu_temple_Vitthala_Vittala_Hampi_Karnataka_India_April_2014.jpg",
+    "file": "File:2 Stone Chariot Lord Vishnu Hindu temple Vitthala Vittala Hampi Karnataka India April 2014.jpg"
+  },
+  "/images/travel/commons/gallery/hyderabad-2.jpg": {
+    "title": "Golconda Fort 3",
+    "author": "Karthik Uppaladhadiam",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Golconda_Fort_3.JPG",
+    "file": "File:Golconda Fort 3.JPG"
+  },
+  "/images/travel/commons/gallery/hyderabad-3.jpg": {
+    "title": "Sultan Qutub Shahi Tomb",
+    "author": "Arshsy",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sultan_Qutub_Shahi_Tomb.jpg",
+    "file": "File:Sultan Qutub Shahi Tomb.jpg"
+  },
+  "/images/travel/commons/gallery/jodhpur-2.jpg": {
+    "title": "Jodhpur-Mehrangarh Fort-06-Blue city-20131011",
+    "author": "Daniel VILLAFRUELA",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Jodhpur-Mehrangarh_Fort-06-Blue_city-20131011.jpg",
+    "file": "File:Jodhpur-Mehrangarh Fort-06-Blue city-20131011.jpg"
+  },
+  "/images/travel/commons/gallery/jodhpur-3.jpg": {
+    "title": "Jodhpur, India, Kilkila cannons on the roof of Mehrangarh Fort",
+    "author": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Jodhpur,_India,_Kilkila_cannons_on_the_roof_of_Mehrangarh_Fort.jpg",
+    "file": "File:Jodhpur, India, Kilkila cannons on the roof of Mehrangarh Fort.jpg"
+  },
+  "/images/travel/commons/gallery/kanyakumari-2.jpg": {
+    "title": "Kanyakumari - The Sunrise",
+    "author": "Naveena",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kanyakumari_-_The_Sunrise.JPG",
+    "file": "File:Kanyakumari - The Sunrise.JPG"
+  },
+  "/images/travel/commons/gallery/kanyakumari-3.jpg": {
+    "title": "Vivekananda Rock, Thiruvalluvar Statue, just after sunset",
+    "author": "Nikhilb239",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Vivekananda_Rock,_Thiruvalluvar_Statue,_just_after_sunset.jpg",
+    "file": "File:Vivekananda Rock, Thiruvalluvar Statue, just after sunset.jpg"
+  },
+  "/images/travel/commons/gallery/kaziranga-national-park-2.jpg": {
+    "title": "A group of Asiatic wild elephants are seen at the Kaziranga National Park in Assam",
+    "author": "Anuwar ali hazarika",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:A_group_of_Asiatic_wild_elephants_are_seen_at_the_Kaziranga_National_Park_in_Assam.jpg",
+    "file": "File:A group of Asiatic wild elephants are seen at the Kaziranga National Park in Assam.jpg"
+  },
+  "/images/travel/commons/gallery/kaziranga-national-park-3.jpg": {
+    "title": "Beautiful rhino couple",
+    "author": "Ishita27",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Beautiful_rhino_couple.jpg",
+    "file": "File:Beautiful rhino couple.jpg"
+  },
+  "/images/travel/commons/gallery/khajuraho-2.jpg": {
+    "title": "Khajuraho Dulhadeo 2010",
+    "author": "Marcin Białek",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Khajuraho_Dulhadeo_2010.jpg",
+    "file": "File:Khajuraho Dulhadeo 2010.jpg"
+  },
+  "/images/travel/commons/gallery/khajuraho-3.jpg": {
+    "title": "Khajuraho Vishwanath temple 2010",
+    "author": "Marcin Białek",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Khajuraho_Vishwanath_temple_2010.jpg",
+    "file": "File:Khajuraho Vishwanath temple 2010.jpg"
+  },
+  "/images/travel/commons/gallery/kochi-2.jpg": {
+    "title": "Kochi, Fishing nets, Sunset, Kerala, India",
+    "author": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kochi,_Fishing_nets,_Sunset,_Kerala,_India.jpg",
+    "file": "File:Kochi, Fishing nets, Sunset, Kerala, India.jpg"
+  },
+  "/images/travel/commons/gallery/kochi-3.jpg": {
+    "title": "Chinese Fishing Nets - 4",
+    "author": "Ingo Mehling",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chinese_Fishing_Nets_-_4.jpg",
+    "file": "File:Chinese Fishing Nets - 4.jpg"
+  },
+  "/images/travel/commons/gallery/kolkata-2.jpg": {
+    "title": "Howrah Bridge at night",
+    "author": "Avikguru",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Howrah_Bridge_at_night.jpg",
+    "file": "File:Howrah Bridge at night.jpg"
+  },
+  "/images/travel/commons/gallery/kolkata-3.jpg": {
+    "title": "New Market - Kolkata December 2019",
+    "author": "Dipankar999",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:New_Market_-_Kolkata_December_2019.jpg",
+    "file": "File:New Market - Kolkata December 2019.jpg"
+  },
+  "/images/travel/commons/gallery/konark-sun-temple-2.jpg": {
+    "title": "Chariot wheel, Konârak 01",
+    "author": "Bernard Gagnon",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Chariot_wheel,_Kon%C3%A2rak_01.jpg",
+    "file": "File:Chariot wheel, Konârak 01.jpg"
+  },
+  "/images/travel/commons/gallery/konark-sun-temple-3.jpg": {
+    "title": "Sun Temple - Konark - Odisha - Panorama",
+    "author": "রবিরশ্মি রায়",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sun_Temple_-_Konark_-_Odisha_-_Panorama.jpg",
+    "file": "File:Sun Temple - Konark - Odisha - Panorama.jpg"
+  },
+  "/images/travel/commons/gallery/madurai-2.jpg": {
+    "title": "Pudhu mandapam",
+    "author": "Sundaram Perumal",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pudhu_mandapam.jpg",
+    "file": "File:Pudhu mandapam.jpg"
+  },
+  "/images/travel/commons/gallery/madurai-3.jpg": {
+    "title": "Gopuram of the Meenakshi Temple at Madurai",
+    "author": "Richard Mortel from Riyadh, Saudi Arabia",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gopuram_of_the_Meenakshi_Temple_at_Madurai.jpg",
+    "file": "File:Gopuram of the Meenakshi Temple at Madurai.jpg"
+  },
+  "/images/travel/commons/gallery/manali-2.jpg": {
+    "title": "Mountain valleys in Manali, Himachal Pradesh, India (2015)",
+    "author": "TANYASHUKLA",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mountain_valleys_in_Manali,_Himachal_Pradesh,_India_(2015).jpg",
+    "file": "File:Mountain valleys in Manali, Himachal Pradesh, India (2015).jpg"
+  },
+  "/images/travel/commons/gallery/manali-3.jpg": {
+    "title": "A panorama at Manali (10441174435)",
+    "author": "Vikramdeep Sidhu from Jhajjar, India",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:A_panorama_at_Manali_(10441174435).jpg",
+    "file": "File:A panorama at Manali (10441174435).jpg"
+  },
+  "/images/travel/commons/gallery/mumbai-2.jpg": {
+    "title": "Gateway of India by me",
+    "author": "Praveenbansal10",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Gateway_of_India_by_me.jpg",
+    "file": "File:Gateway of India by me.jpg"
+  },
+  "/images/travel/commons/gallery/mumbai-3.jpg": {
+    "title": "Marine Drive at Night",
+    "author": "Ramesh lalwani",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Marine_Drive_at_Night.jpg",
+    "file": "File:Marine Drive at Night.jpg"
+  },
+  "/images/travel/commons/gallery/munnar-2.jpg": {
+    "title": "Landscape view of Echo Point Munnar, Kerela, India",
+    "author": "BroKholi94",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Landscape_view_of_Echo_Point_Munnar,_Kerela,_India.jpg",
+    "file": "File:Landscape view of Echo Point Munnar, Kerela, India.jpg"
+  },
+  "/images/travel/commons/gallery/munnar-3.jpg": {
+    "title": "Sunrise view over tea plantations and mountain ranges in Munnar",
+    "author": "LiteraryDP",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sunrise_view_over_tea_plantations_and_mountain_ranges_in_Munnar.jpg",
+    "file": "File:Sunrise view over tea plantations and mountain ranges in Munnar.jpg"
+  },
+  "/images/travel/commons/gallery/mysuru-2.jpg": {
+    "title": "Mysuru Palace - Main Gate",
+    "author": "Ingo Mehling",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mysuru_Palace_-_Main_Gate.jpg",
+    "file": "File:Mysuru Palace - Main Gate.jpg"
+  },
+  "/images/travel/commons/gallery/mysuru-3.jpg": {
+    "title": "Mysuru Palace - Marriage Pavilion",
+    "author": "Ingo Mehling",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Mysuru_Palace_-_Marriage_Pavilion.jpg",
+    "file": "File:Mysuru Palace - Marriage Pavilion.jpg"
+  },
+  "/images/travel/commons/gallery/pelling-2.jpg": {
+    "title": "Rabdentse Pelling Sikkim MG 2087",
+    "author": "Subodh Pathak",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Rabdentse_Pelling_Sikkim_MG_2087.jpg",
+    "file": "File:Rabdentse Pelling Sikkim MG 2087.jpg"
+  },
+  "/images/travel/commons/gallery/pelling-3.jpg": {
+    "title": "Kangchenjunga India",
+    "author": "Jakub Michankow",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Kangchenjunga_India.jpg",
+    "file": "File:Kangchenjunga India.jpg"
+  },
+  "/images/travel/commons/gallery/puducherry-2.jpg": {
+    "title": "Beach Promenade at Pondicherry panorama",
+    "author": "Sanyam Bahga",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Beach_Promenade_at_Pondicherry_panorama.jpg",
+    "file": "File:Beach Promenade at Pondicherry panorama.jpg"
+  },
+  "/images/travel/commons/gallery/puducherry-3.jpg": {
+    "title": "Pondicherry-Gandhi Monument-IMG 20250222 205032-Verbessert-RR",
+    "author": "Rainer Halama",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Pondicherry-Gandhi_Monument-IMG_20250222_205032-Verbessert-RR.jpg",
+    "file": "File:Pondicherry-Gandhi Monument-IMG 20250222 205032-Verbessert-RR.jpg"
+  },
+  "/images/travel/commons/gallery/rishikesh-2.jpg": {
+    "title": "Ram jhoola, rishikesh, uttrakhand, india",
+    "author": "Pranavspn",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ram_jhoola,_rishikesh,_uttrakhand,_india.JPG",
+    "file": "File:Ram jhoola, rishikesh, uttrakhand, india.JPG"
+  },
+  "/images/travel/commons/gallery/rishikesh-3.jpg": {
+    "title": "River Rafting in Ganga Near Ram Jhula Rishikesh 03",
+    "author": "Goutam1962",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:River_Rafting_in_Ganga_Near_Ram_Jhula_Rishikesh_03.jpg",
+    "file": "File:River Rafting in Ganga Near Ram Jhula Rishikesh 03.jpg"
+  },
+  "/images/travel/commons/gallery/shillong-2.jpg": {
+    "title": "Umiam Lake, Shillong, Megahalya",
+    "author": "Prabhat114",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Umiam_Lake,_Shillong,_Megahalya.jpg",
+    "file": "File:Umiam Lake, Shillong, Megahalya.jpg"
+  },
+  "/images/travel/commons/gallery/shillong-3.jpg": {
+    "title": "Elephant falls of shillong",
+    "author": "Darshana Darshu",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Elephant_falls_of_shillong.jpg",
+    "file": "File:Elephant falls of shillong.jpg"
+  },
+  "/images/travel/commons/gallery/swaraj-dweep-2.jpg": {
+    "title": "Havelock Island, Radhanagar Beach at sunset, Andaman Islands",
+    "author": "Vyacheslav Argenberg",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Havelock_Island,_Radhanagar_Beach_at_sunset,_Andaman_Islands.jpg",
+    "file": "File:Havelock Island, Radhanagar Beach at sunset, Andaman Islands.jpg"
+  },
+  "/images/travel/commons/gallery/swaraj-dweep-3.jpg": {
+    "title": "Elephant Beach",
+    "author": "Rudolph.A.furtado",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Elephant_Beach.jpg",
+    "file": "File:Elephant Beach.jpg"
+  },
+  "/images/travel/commons/gallery/varkala-2.jpg": {
+    "title": "Varkala South Cliff - panoramio",
+    "author": "Alexey Komarov",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Varkala_South_Cliff_-_panoramio.jpg",
+    "file": "File:Varkala South Cliff - panoramio.jpg"
+  },
+  "/images/travel/commons/gallery/varkala-3.jpg": {
+    "title": "Varkala beach 01",
+    "author": "Ganesh Mohan T",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Varkala_beach_01.jpg",
+    "file": "File:Varkala beach 01.jpg"
+  },
+  "/images/travel/commons/gallery/ziro-valley-2.jpg": {
+    "title": "Apatani Rice Paddies",
+    "author": "Kuntal Narayan Chaudhuri",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Apatani_Rice_Paddies.jpg",
+    "file": "File:Apatani Rice Paddies.jpg"
+  },
+  "/images/travel/commons/gallery/ziro-valley-3.jpg": {
+    "title": "Ziro valley of Aruncahl in summer season",
+    "author": "Arunachal2007",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Ziro_valley_of_Aruncahl_in_summer_season.jpg",
+    "file": "File:Ziro valley of Aruncahl in summer season.jpg"
+  },
+  "/images/travel/commons/story/goa-1.jpg": {
+    "title": "Streets of Fontainhas, Panaji (03)",
+    "author": "iMahesh",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Streets_of_Fontainhas,_Panaji_(03).jpg",
+    "file": "File:Streets of Fontainhas, Panaji (03).jpg"
+  },
+  "/images/travel/commons/story/goa-2.jpg": {
+    "title": "The Church of Our Lady of Compassion is located in the village of Piedade; in Divar island",
+    "author": "Nehanaik1606",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:The_Church_of_Our_Lady_of_Compassion_is_located_in_the_village_of_Piedade;_in_Divar_island.jpg",
+    "file": "File:The Church of Our Lady of Compassion is located in the village of Piedade; in Divar island.jpg"
+  },
+  "/images/travel/commons/story/goa-3.jpg": {
+    "title": "Palolem Beach, south Goa",
+    "author": "Mahabalaindia",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Palolem_Beach,_south_Goa.jpg",
+    "file": "File:Palolem Beach, south Goa.jpg"
+  },
+  "/images/travel/commons/story/jaipur-1.jpg": {
+    "title": "India - Jaipur - 022 - inner courtyard of the Amber fort during monsoon (1036338121)",
+    "author": "McKay Savage from London, UK",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:India_-_Jaipur_-_022_-_inner_courtyard_of_the_Amber_fort_during_monsoon_(1036338121).jpg",
+    "file": "File:India - Jaipur - 022 - inner courtyard of the Amber fort during monsoon (1036338121).jpg"
+  },
+  "/images/travel/commons/story/jaipur-2.jpg": {
+    "title": "Jaipur-Hawa Mahal Bazaar-Going to the market-20131017",
+    "author": "Daniel VILLAFRUELA",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Jaipur-Hawa_Mahal_Bazaar-Going_to_the_market-20131017.jpg",
+    "file": "File:Jaipur-Hawa Mahal Bazaar-Going to the market-20131017.jpg"
+  },
+  "/images/travel/commons/story/jaipur-3.jpg": {
+    "title": "Johari Bazar",
+    "author": "Ramesh Lalwani",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Johari_Bazar.jpg",
+    "file": "File:Johari Bazar.jpg"
+  },
+  "/images/travel/commons/story/munnar-1.jpg": {
+    "title": "Eravikulam National Park, Munnar - panoramio",
+    "author": "Jaseem Hamza",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Eravikulam_National_Park,_Munnar_-_panoramio.jpg",
+    "file": "File:Eravikulam National Park, Munnar - panoramio.jpg"
+  },
+  "/images/travel/commons/story/munnar-2.jpg": {
+    "title": "Top station munnar - panoramio (4)",
+    "author": "Arun Muralidhar",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Top_station_munnar_-_panoramio_(4).jpg",
+    "file": "File:Top station munnar - panoramio (4).jpg"
+  },
+  "/images/travel/commons/story/munnar-3.jpg": {
+    "title": "A Road So Taken! - Munnar Tea Estates",
+    "author": "16paruljain",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:A_Road_So_Taken!_-_Munnar_Tea_Estates.jpg",
+    "file": "File:A Road So Taken! - Munnar Tea Estates.jpg"
+  },
+  "/images/travel/commons/story/varanasi-1.jpg": {
+    "title": "Sunrise at the Ganges near Varanasi",
+    "author": "Ilya Mauter",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Sunrise_at_the_Ganges_near_Varanasi.JPG",
+    "file": "File:Sunrise at the Ganges near Varanasi.JPG"
+  },
+  "/images/travel/commons/story/varanasi-2.jpg": {
+    "title": "Night Tour of the Ghats of Varanasi by Boat by Immanuelle-8644",
+    "author": "Immanuelle",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Night_Tour_of_the_Ghats_of_Varanasi_by_Boat_by_Immanuelle-8644.jpg",
+    "file": "File:Night Tour of the Ghats of Varanasi by Boat by Immanuelle-8644.jpg"
+  },
+  "/images/travel/commons/story/varanasi-3.jpg": {
+    "title": "Dhamek Stupa, 2025",
+    "author": "Hardy Explorer",
+    "license": "CC0",
+    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "source": "https://commons.wikimedia.org/wiki/File:Dhamek_Stupa,_2025.jpg",
+    "file": "File:Dhamek Stupa, 2025.jpg"
+  }
+}
