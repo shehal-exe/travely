@@ -4,6 +4,7 @@ import { describe, expect, it } from "vitest";
 import { categoryGuides } from "./category-guides";
 import { travelCircuits } from "./circuits";
 import { demoDestinations, demoMemories } from "./demo";
+import { openDestinations } from "./open-destinations";
 import { commonsCredits } from "@/lib/media-credits";
 import commonsSources from "./commons-source-map.json";
 
@@ -14,6 +15,11 @@ describe("curated photo assignments", () => {
     const covers = demoDestinations.map((destination) => destination.cover_image_url);
     expect(new Set(covers).size).toBe(covers.length);
     for (const cover of covers) expect(existsSync(localFile(cover!))).toBe(true);
+  });
+
+  it("does not reuse a photograph across open-catalogue cards", () => {
+    const covers = openDestinations.map((destination) => destination.cover_image_url).filter((cover): cover is string => Boolean(cover));
+    expect(new Set(covers).size).toBe(covers.length);
   });
 
   it("has a multi-photo walkthrough for every featured destination", () => {

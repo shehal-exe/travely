@@ -37,8 +37,8 @@ export const travelCircuits: TravelCircuit[] = [
     bestTime: "October to March",
     transport: "Intercity train or private car; metro and local taxi within cities",
     summary: "India’s classic first circuit links Delhi’s layered capitals, Agra’s Mughal monuments, and Jaipur’s forts and planned old city.",
-    image: "/images/travel/commons/destination/delhi.jpg",
-    slides: ["/images/travel/commons/destination/taj-mahal.jpg", "/images/travel/commons/destination/jaipur.jpg", "/images/travel/commons/gallery/taj-mahal-2.jpg"],
+    image: "/images/travel/commons/gallery/delhi-2.jpg",
+    slides: ["/images/travel/commons/gallery/taj-mahal-2.jpg", "/images/travel/commons/gallery/jaipur-2.jpg", "/images/travel/commons/gallery/delhi-3.jpg"],
     sourceName: "Incredible India — Traversing the Golden Triangle",
     sourceUrl: "https://www.prod.incredibleindia.gov.in/content/incredible-india-v2/en/itineraries/pan-india/traversing-the-golden-triangle.html",
     stops: [
@@ -58,8 +58,8 @@ export const travelCircuits: TravelCircuit[] = [
     bestTime: "October to March",
     transport: "Rail and bus between major towns; taxi for hill and backwater transfers",
     summary: "A south-to-central Kerala journey connecting city culture, Varkala’s cliffs, Alappuzha’s waterways, Kochi’s heritage, and Munnar’s tea country.",
-    image: "/images/travel/commons/destination/varkala.jpg",
-    slides: ["/images/travel/commons/destination/alappuzha.jpg", "/images/travel/commons/destination/kochi.jpg", "/images/travel/commons/destination/munnar.jpg"],
+    image: "/images/travel/commons/gallery/varkala-2.jpg",
+    slides: ["/images/travel/commons/gallery/alappuzha-2.jpg", "/images/travel/commons/gallery/kochi-2.jpg", "/images/travel/commons/gallery/munnar-2.jpg"],
     sourceName: "Incredible India — 7 days in God’s own country",
     sourceUrl: "https://www.incredibleindia.gov.in/en/trips/trip-listing/7-days-in-gods-own-country-kerala-adventure",
     stops: [
@@ -80,8 +80,8 @@ export const travelCircuits: TravelCircuit[] = [
     bestTime: "October to May; monsoon for peak waterfalls",
     transport: "Fly or rail to Guwahati, then registered taxi for the hill circuit",
     summary: "A compact northeast circuit from Guwahati to Shillong and Sohra, combining Khasi culture, immense waterfalls, lake country, and forest walks.",
-    image: "/images/travel/commons/destination/shillong.jpg",
-    slides: ["/images/travel/commons/destination/guwahati.jpg", "/images/travel/commons/destination/cherrapunji.jpg", "/images/travel/commons/gallery/cherrapunji-2.jpg"],
+    image: "/images/travel/commons/gallery/shillong-2.jpg",
+    slides: ["/images/travel/commons/gallery/guwahati-2.jpg", "/images/travel/commons/gallery/cherrapunji-2.jpg", "/images/travel/commons/gallery/shillong-3.jpg"],
     sourceName: "Incredible India — The Northeast Green Triangle",
     sourceUrl: "https://www.incredibleindia.gov.in/en/trips/trip-listing/the-northeast-green-triangle",
     stops: [
@@ -101,8 +101,8 @@ export const travelCircuits: TravelCircuit[] = [
     bestTime: "March to May; October to December",
     transport: "Fly or rail to Bagdogra/NJP, then registered shared or private hill taxis",
     summary: "A panoramic eastern Himalayan journey through Gangtok, Pelling, and Darjeeling, mixing monasteries, tea country, markets, and mountain rail heritage.",
-    image: "/images/travel/commons/destination/gangtok.jpg",
-    slides: ["/images/travel/commons/destination/pelling.jpg", "/images/travel/commons/gallery/gangtok-2.jpg", "/images/travel/commons/destination/darjeeling.jpg"],
+    image: "/images/travel/commons/gallery/gangtok-2.jpg",
+    slides: ["/images/travel/commons/gallery/pelling-2.jpg", "/images/travel/commons/gallery/darjeeling-2.jpg", "/images/travel/commons/gallery/gangtok-3.jpg"],
     sourceName: "Incredible India — Amazing Northeast",
     sourceUrl: "https://www.incredibleindia.gov.in/en/trips/trip-listing/amazing-northeast",
     stops: [

@@ -18,7 +18,11 @@ export default async function Home() {
     .map((slug) => destinations.find((item) => item.slug === slug))
     .filter((item) => item !== undefined);
   const places = featured.length === featuredSlugs.length ? featured : destinations.slice(0, 3);
-  const moods = [categoryGuides[1], categoryGuides[0], categoryGuides[2]];
+  const moods = [
+    { ...categoryGuides[1], image: "/images/travel/cherrapunji-3.jpg" },
+    { ...categoryGuides[0], image: "/images/travel/goa-3.jpg" },
+    { ...categoryGuides[2], image: "/images/travel/jaipur-2.jpg" },
+  ];
 
   return (
     <>
@@ -130,7 +134,7 @@ export default async function Home() {
               </div>
             </div>
             <div className="relative min-h-[330px] lg:min-h-[480px]">
-              <Image src="/images/travel/commons/destination/varanasi.jpg" alt="Morning light over the ghats of Varanasi" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+              <Image src="/images/travel/varanasi-1.jpg" alt="Morning light over the ghats of Varanasi" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
             </div>
           </div>
         </Reveal>

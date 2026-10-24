@@ -35,10 +35,14 @@ function normalizeDistrict(admin: string | null, region: string) {
   return admin.replace(/\s+district$/i, "");
 }
 
+const assignedImages = new Set<string>();
+
 export const openDestinations: Destination[] = records.map((record, index) => {
   const searchable = `${record.name} ${record.description} ${record.types.join(" ")}`;
   const category = categories[inferCategory(searchable)];
-  const cover = imageUrl(record.image);
+  const candidateCover = imageUrl(record.image);
+  const cover = candidateCover && !assignedImages.has(candidateCover) ? candidateCover : null;
+  if (cover) assignedImages.add(cover);
   const region = normalizeRegion(record.state, record.admin, record.name);
   return {
     id: `wikidata-${record.qid}`,

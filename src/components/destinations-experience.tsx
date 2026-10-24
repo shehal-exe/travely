@@ -8,7 +8,7 @@ import type { Destination } from "@/types/database";
 
 const heroByView: Record<DestinationView, { image: string; eyebrow: string; title: string; description: string; position: string }> = {
   places: {
-    image: "/images/travel/commons/destination/jaipur.jpg",
+    image: "/images/travel/jaipur-3.jpg",
     eyebrow: "Explore India",
     title: "Where to next?",
     description: "Find a place that feels right, from storied cities to quiet mountain valleys.",
@@ -22,7 +22,7 @@ const heroByView: Record<DestinationView, { image: string; eyebrow: string; titl
     position: "object-center",
   },
   routes: {
-    image: "/images/travel/ladakh-1.jpg",
+    image: "/images/travel/ladakh-2.jpg",
     eyebrow: "Follow a proven path",
     title: "Travel routes, ready to explore",
     description: "Start with a real multi-stop circuit, then shape the pace and budget around your journey.",

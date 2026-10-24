@@ -26,7 +26,7 @@ export default async function MemoryPage({ params, searchParams }: { params: Pro
   return (
     <article>
       <section className="relative isolate overflow-hidden bg-[#0b3447] py-16 text-white lg:py-24">
-        <Image src={memory.images?.[0]?.image_url ?? "/images/travel/commons/gallery/varanasi-2.jpg"} alt="" fill priority className="-z-20 object-cover object-center" sizes="100vw" />
+        <Image src={memory.images?.[0]?.image_url ?? "/images/travel/varanasi-2.jpg"} alt="" fill priority className="-z-20 object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#061f2c]/95 via-[#0b3447]/75 to-[#0b3447]/25" />
         <div className="section-shell max-w-6xl">
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-emerald-200">{memory.country} · {memory.category ?? "Travel story"}</p>

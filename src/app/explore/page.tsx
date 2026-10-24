@@ -33,7 +33,7 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
 
   return <>
     <section className="relative isolate overflow-hidden bg-[#082f3d] py-20 text-white lg:py-24">
-      <Image src="/images/travel/commons/gallery/varanasi-3.jpg" alt="" fill priority className="-z-20 object-cover object-center" sizes="100vw" />
+      <Image src="/images/travel/varanasi-3.jpg" alt="" fill priority className="-z-20 object-cover object-center" sizes="100vw" />
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#061f35]/95 via-[#06453f]/78 to-[#052f39]/35" />
       <div className="section-shell">
         <Reveal><div className="max-w-4xl"><p className="text-xs font-bold uppercase tracking-[0.22em] text-emerald-200">Community stories</p><h1 className="mt-3 font-serif text-5xl font-semibold text-white sm:text-6xl">Real journeys, with the useful details kept in.</h1><p className="mt-5 max-w-3xl text-lg leading-8 text-white/85">Discover public travel stories, or catch up with travellers you follow. Open a story for photographs, practical tips, and the complete journey.</p></div></Reveal>
