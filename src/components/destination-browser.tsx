@@ -10,10 +10,9 @@ import { Input } from "@/components/ui/field";
 import { travelCircuits } from "@/data/circuits";
 import type { Destination } from "@/types/database";
 
-type View = "places" | "map" | "routes";
+export type DestinationView = "places" | "map" | "routes";
 
-export function DestinationBrowser({ destinations, initialQuery = "", initialCategory = "all", initialView = "places" }: { destinations: Destination[]; initialQuery?: string; initialCategory?: string; initialView?: string }) {
-  const [view, setView] = useState<View>(initialView === "map" || initialView === "routes" ? initialView : "places");
+export function DestinationBrowser({ destinations, initialQuery = "", initialCategory = "all", view, onViewChange }: { destinations: Destination[]; initialQuery?: string; initialCategory?: string; view: DestinationView; onViewChange: (view: DestinationView) => void }) {
   const [query, setQuery] = useState(initialQuery);
   const [category, setCategory] = useState(initialCategory);
   const [region, setRegion] = useState("all");
@@ -45,7 +44,7 @@ export function DestinationBrowser({ destinations, initialQuery = "", initialCat
   return (
     <>
       <div className="mx-auto grid w-full grid-cols-3 gap-1.5 rounded-[1.4rem] bg-[#eef2ed] p-1.5" aria-label="Destination views">
-        {tabs.map((tab) => <button key={tab.id} type="button" aria-pressed={view === tab.id} onClick={() => setView(tab.id)} className={`flex min-h-14 items-center justify-center rounded-2xl px-2 py-3 text-center text-xs font-semibold transition sm:px-5 sm:text-sm ${view === tab.id ? "bg-white text-[#0d6d67] shadow-sm ring-1 ring-slate-200/70" : "text-slate-600 hover:bg-white/55 hover:text-[#123a50]"}`}>{tab.label}</button>)}
+        {tabs.map((tab) => <button key={tab.id} type="button" aria-pressed={view === tab.id} onClick={() => onViewChange(tab.id)} className={`flex min-h-14 items-center justify-center rounded-2xl px-2 py-3 text-center text-xs font-semibold transition sm:px-5 sm:text-sm ${view === tab.id ? "bg-white text-[#0d6d67] shadow-sm ring-1 ring-slate-200/70" : "text-slate-600 hover:bg-white/55 hover:text-[#123a50]"}`}>{tab.label}</button>)}
       </div>
 
       {view !== "routes" && <div className="mt-6 w-full">
