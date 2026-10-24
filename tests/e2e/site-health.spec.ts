@@ -70,6 +70,16 @@ test("home and about videos plus key destination photos load", async ({ page, re
   await expect.poll(async () => cover.evaluate((image: HTMLImageElement) => image.naturalWidth), { timeout: 15_000 }).toBeGreaterThan(0);
 });
 
+test("about destination film advances with the next clip preloaded", async ({ page }) => {
+  test.setTimeout(30_000);
+  await page.goto("/about");
+  const videos = page.locator("#about video");
+  await expect(videos).toHaveCount(2);
+  const activeVideo = page.locator("#about video.opacity-100");
+  const firstSource = await activeVideo.getAttribute("src");
+  await expect.poll(() => activeVideo.getAttribute("src"), { timeout: 15_000 }).not.toBe(firstSource);
+});
+
 test("homepage story and planning images appear on scroll", async ({ page }) => {
   test.setTimeout(60_000);
   await page.goto("/");
