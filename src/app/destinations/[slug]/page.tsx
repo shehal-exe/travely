@@ -3,7 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CalendarRange, Clock3, Compass, IndianRupee, MapPin, Plane, ShieldCheck, Star } from "lucide-react";
 import { TravelMap } from "@/components/maps/travel-map";
+import { MemoryCard } from "@/components/memory-card";
 import { getDestination } from "@/lib/data";
+import { getDestinationStories } from "@/lib/social-data";
 import { getCommonsFilePage, getMediaCredit } from "@/lib/media-credits";
 
 export default async function DestinationPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -11,6 +13,8 @@ export default async function DestinationPage({ params }: { params: Promise<{ sl
   const destination = await getDestination(slug);
   if (!destination) notFound();
   const gallery = destination.gallery_images?.length ? destination.gallery_images : destination.cover_image_url ? [destination.cover_image_url] : [];
+  const canLinkStories = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(destination.id);
+  const community = await getDestinationStories(destination.id);
 
   return (
     <>
@@ -33,6 +37,8 @@ export default async function DestinationPage({ params }: { params: Promise<{ sl
       </section>
 
       {gallery.length > 0 && <section className="bg-[#f1eadf] py-16"><div className="section-shell"><p className="eyebrow">Visual walkthrough</p><h2 className="mt-3 font-serif text-4xl font-semibold text-[#123a50]">See the atmosphere</h2><p className="mt-3 max-w-2xl text-slate-600">A closer look at {destination.name}, from its landmarks to the details that make the journey memorable.</p><div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{gallery.map((image, index) => { const credit = getMediaCredit(image); const filePage = getCommonsFilePage(image); return <figure key={`${image}-${index}`} className="overflow-hidden rounded-[1.75rem] bg-white shadow-sm"><div className="relative aspect-[4/3]"><Image src={image} alt={`${destination.name} view ${index + 1}`} fill className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" /></div><figcaption className="px-5 py-3 text-xs text-slate-500">{destination.name} · {credit ? <>Photo by <a className="font-semibold underline" href={credit.source} target="_blank" rel="noreferrer">{credit.author}</a> · <a className="underline" href={credit.licenseUrl} target="_blank" rel="noreferrer">{credit.license}</a></> : filePage ? <a className="underline" href={filePage} target="_blank" rel="noreferrer">Photo details</a> : destination.media_credit ?? "Travel photograph"}</figcaption></figure>; })}</div>{destination.video_url && <div className="mt-8 overflow-hidden rounded-[2rem] bg-black shadow-xl"><video src={destination.video_url} controls muted playsInline preload="metadata" poster={destination.cover_image_url ?? undefined} className="aspect-video w-full object-cover" /><div className="bg-[#082d3e] px-5 py-4 text-sm text-slate-200">A short destination film · TRAVELY destination footage</div></div>}</div></section>}
+
+      <section id="community" className="section-shell py-16"><div className="flex flex-wrap items-end justify-between gap-5"><div><p className="eyebrow">Community experiences</p><h2 className="mt-3 font-serif text-4xl font-semibold text-[#123a50]">Stories from {destination.name}</h2><p className="mt-3 text-slate-600">First-hand journeys linked to this place by TRAVELY travellers.</p></div><Link href={canLinkStories ? `/journal/new?destination=${encodeURIComponent(destination.id)}` : "/journal/new"} className="rounded-full bg-[#e96536] px-5 py-3 text-sm font-bold text-white">Share your visit</Link></div>{community.error ? <p role="alert" className="mt-8 rounded-2xl bg-amber-50 p-6 text-amber-900">{community.error}</p> : community.memories.length ? <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">{community.memories.map((memory) => <MemoryCard key={memory.id} memory={memory} />)}</div> : <p className="mt-8 rounded-2xl bg-[#edf6f3] p-6 text-slate-600">No traveller stories linked to this destination yet. Be the first to share one.</p>}</section>
 
       {destination.latitude != null && destination.longitude != null && <section className="section-shell py-16"><div className="mb-6"><p className="eyebrow">Location</p><h2 className="mt-2 font-serif text-4xl font-semibold text-[#123a50]">Open it on the map</h2></div><TravelMap destinations={[destination]} /></section>}
     </>

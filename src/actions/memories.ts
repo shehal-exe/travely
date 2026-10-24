@@ -18,6 +18,7 @@ const extensions: Record<string, string> = {
 function parseMemory(formData: FormData) {
   return memorySchema.safeParse({
     title: formData.get("title"),
+    destinationId: formData.get("destinationId") || undefined,
     destinationName: formData.get("destinationName"),
     locationVisited: formData.get("locationVisited"),
     country: formData.get("country"),
@@ -39,6 +40,7 @@ function parseMemory(formData: FormData) {
 function memoryFields(value: MemoryInput) {
   return {
     title: value.title,
+    destination_id: value.destinationId || null,
     destination_name: value.destinationName,
     location_visited: value.locationVisited,
     country: value.country,
@@ -55,6 +57,18 @@ function memoryFields(value: MemoryInput) {
     latitude: value.latitude ?? null,
     longitude: value.longitude ?? null,
   };
+}
+
+async function validateDestination(supabase: NonNullable<Awaited<ReturnType<typeof getSupabaseServer>>>, destinationId?: string) {
+  if (!destinationId) return true;
+  const { data, error } = await supabase.from("destinations").select("id").eq("id", destinationId).maybeSingle();
+  return !error && Boolean(data);
+}
+
+async function revalidateDestination(supabase: NonNullable<Awaited<ReturnType<typeof getSupabaseServer>>>, destinationId?: string | null) {
+  if (!destinationId) return;
+  const { data } = await supabase.from("destinations").select("slug").eq("id", destinationId).maybeSingle();
+  if (data?.slug) revalidatePath(`/destinations/${data.slug}`);
 }
 
 function revalidateMemoryPages(id: string) {
@@ -74,6 +88,7 @@ export async function createMemory(_: ActionState, formData: FormData): Promise<
 
   const parsed = parseMemory(formData);
   if (!parsed.success) return { error: parsed.error.issues[0]?.message ?? "Invalid form." };
+  if (!await validateDestination(supabase, parsed.data.destinationId)) return { error: "Select a destination from the catalogue or leave it unlinked." };
 
   const files = formData.getAll("images").filter((item): item is File => item instanceof File && item.size > 0);
   if (files.length === 0 || files.length > imageRules.maxFiles) return { error: "Add between 1 and 8 images." };
@@ -111,6 +126,7 @@ export async function createMemory(_: ActionState, formData: FormData): Promise<
     }
   }
   revalidateMemoryPages(memory.id);
+  await revalidateDestination(supabase, parsed.data.destinationId);
   redirect(`/memories/${memory.id}`);
 }
 
@@ -121,7 +137,7 @@ export async function deleteMemory(memoryId: string): Promise<ActionState> {
   const { data: { user }, error: authError } = await supabase.auth.getUser();
   if (authError || !user) return { error: "Please sign in again." };
   const { data: owned, error: ownerError } = await supabase
-    .from("travel_memories").select("id").eq("id", memoryId).eq("user_id", user.id).maybeSingle();
+    .from("travel_memories").select("id, destination_id").eq("id", memoryId).eq("user_id", user.id).maybeSingle();
   if (ownerError) return { error: ownerError.message };
   if (!owned) return { error: "Memory not found or you do not own it." };
   const { data: images, error: imagesError } = await supabase
@@ -133,6 +149,7 @@ export async function deleteMemory(memoryId: string): Promise<ActionState> {
   if (error) return { error: error.message };
   if (!deleted) return { error: "The memory was not deleted. Please refresh and retry." };
   revalidateMemoryPages(memoryId);
+  await revalidateDestination(supabase, owned.destination_id);
 
   const paths = images?.map((item) => item.storage_path).filter(Boolean) ?? [];
   if (paths.length) {
@@ -169,12 +186,16 @@ export async function updateMemory(memoryId: string, formData: FormData): Promis
   if (authError || !user) return { error: "Please sign in again." };
   const parsed = parseMemory(formData);
   if (!parsed.success) return { error: parsed.error.issues[0]?.message ?? "Invalid form." };
+  if (!await validateDestination(supabase, parsed.data.destinationId)) return { error: "Select a destination from the catalogue or leave it unlinked." };
+  const { data: previous } = await supabase.from("travel_memories").select("destination_id").eq("id", memoryId).eq("user_id", user.id).maybeSingle();
   const { data, error } = await supabase.from("travel_memories")
     .update(memoryFields(parsed.data)).eq("id", memoryId).eq("user_id", user.id)
     .select("id").maybeSingle();
   if (error) return { error: error.message };
   if (!data) return { error: "Memory not found or you do not own it." };
   revalidateMemoryPages(memoryId);
+  await revalidateDestination(supabase, previous?.destination_id);
+  await revalidateDestination(supabase, parsed.data.destinationId);
   redirect(`/memories/${memoryId}`);
 }
 

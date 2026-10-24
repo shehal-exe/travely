@@ -50,7 +50,8 @@ export default function TravelMapInner({ destinations, expanded }: { destination
               <span className="text-xs font-semibold uppercase tracking-wide text-teal-700">{destination.category?.name ?? "Destination"}</span>
               <strong className="mt-1 block text-base">{destination.name}</strong>
               <span>{[destination.region, destination.country].filter(Boolean).join(", ")}</span><br />
-              <Link href={`/destinations/${destination.slug}`} className="mt-2 inline-block font-semibold text-teal-700">View destination →</Link>
+              <Link href={`/destinations/${destination.slug}`} className="mt-2 inline-block font-semibold text-teal-700">View destination →</Link><br />
+              <Link href={`/destinations/${destination.slug}#community`} className="mt-1 inline-block text-sm font-semibold text-teal-700">Traveller stories →</Link>
             </Popup>
           </Marker>
         ))}

@@ -11,6 +11,21 @@ export type Profile = {
   updated_at: string;
 };
 
+export type TravellerFollow = {
+  follower_id: string;
+  following_id: string;
+  created_at: string;
+};
+
+export type MemoryComment = {
+  id: string;
+  memory_id: string;
+  author_id: string;
+  body: string;
+  created_at: string;
+  author?: Profile | null;
+};
+
 export type Category = {
   id: string;
   name: string;
@@ -85,6 +100,7 @@ export type TravelMemory = {
   profile?: Profile | null;
   images?: MemoryImage[];
   likes_count?: number;
+  comments_count?: number;
   total_expense?: number | null;
   days_spent?: number | null;
   trip_style?: string | null;

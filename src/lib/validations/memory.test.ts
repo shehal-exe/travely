@@ -26,4 +26,6 @@ describe("memorySchema", () => {
     expect(memorySchema.safeParse({ ...valid, daysSpent: "366" }).success).toBe(false);
   });
   it("rejects a future travel date", () => expect(memorySchema.safeParse({ ...valid, travelDate: "2099-01-01" }).success).toBe(false));
+  it("accepts a known destination ID and keeps the text fields", () => expect(memorySchema.safeParse({ ...valid, destinationId: "70be6dac-b93b-44c0-9ae7-52696b1dc9b0" }).success).toBe(true));
+  it("rejects an invalid destination ID instead of guessing a match", () => expect(memorySchema.safeParse({ ...valid, destinationId: "munnar" }).success).toBe(false));
 });

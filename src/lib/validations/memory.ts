@@ -2,6 +2,7 @@ import { z } from "zod";
 
 export const memorySchema = z.object({
   title: z.string().trim().min(3).max(120),
+  destinationId: z.union([z.uuid(), z.literal("")]).optional(),
   destinationName: z.string().trim().min(2).max(120),
   locationVisited: z.string().trim().min(2).max(160),
   country: z.string().trim().min(2).max(80),

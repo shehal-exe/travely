@@ -4,9 +4,9 @@ import { useState, useTransition } from "react";
 import { updateMemory } from "@/actions/memories";
 import { Button } from "@/components/ui/button";
 import { Input, Label, Textarea } from "@/components/ui/field";
-import type { TravelMemory } from "@/types/database";
+import type { Destination, TravelMemory } from "@/types/database";
 
-export function EditMemoryForm({ memory }: { memory: TravelMemory }) {
+export function EditMemoryForm({ memory, destinations }: { memory: TravelMemory; destinations: Pick<Destination, "id" | "name" | "region">[] }) {
   const [error, setError] = useState<string>();
   const [pending, startTransition] = useTransition();
 
@@ -22,6 +22,7 @@ export function EditMemoryForm({ memory }: { memory: TravelMemory }) {
       <div className="grid gap-5 md:grid-cols-2">
         <div><Label htmlFor="title">Title</Label><Input id="title" name="title" defaultValue={memory.title} required minLength={3} maxLength={120} /></div>
         <div><Label htmlFor="destinationName">Destination</Label><Input id="destinationName" name="destinationName" defaultValue={memory.destination_name} required /></div>
+        <div className="md:col-span-2"><Label htmlFor="destinationId">Linked catalogue destination (optional)</Label><select id="destinationId" name="destinationId" defaultValue={memory.destination_id ?? ""} className="min-h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-[#123a50]"><option value="">No catalogue link</option>{destinations.map((destination) => <option key={destination.id} value={destination.id}>{destination.name}{destination.region ? ` · ${destination.region}` : ""}</option>)}</select></div>
         <div><Label htmlFor="locationVisited">Location</Label><Input id="locationVisited" name="locationVisited" defaultValue={memory.location_visited} required /></div>
         <div><Label htmlFor="country">Country</Label><Input id="country" name="country" defaultValue={memory.country} required /></div>
         <div><Label htmlFor="travelDate">Travel date</Label><Input id="travelDate" name="travelDate" type="date" defaultValue={memory.travel_date} required /></div>

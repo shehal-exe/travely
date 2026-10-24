@@ -58,6 +58,13 @@ export async function getFeaturedDestinations(): Promise<Destination[]> {
   ];
 }
 
+export async function getSelectableDestinations(): Promise<Pick<Destination, "id" | "name" | "region">[]> {
+  const supabase = await getSupabaseServer();
+  if (!supabase) return [];
+  const { data } = await supabase.from("destinations").select("id, name, region").order("name").limit(1000);
+  return (data ?? []) as Pick<Destination, "id" | "name" | "region">[];
+}
+
 export async function getPublicMemories(): Promise<TravelMemory[]> {
   const supabase = await getSupabaseServer();
   if (!supabase) return demoMemories;

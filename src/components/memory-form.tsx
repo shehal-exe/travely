@@ -7,11 +7,13 @@ import { createMemory, type ActionState } from "@/actions/memories";
 import { Button } from "@/components/ui/button";
 import { Input, Label, Textarea } from "@/components/ui/field";
 import { imageRules, validateImages } from "@/lib/validations/memory";
+import type { Destination } from "@/types/database";
 
 const initialState: ActionState = {};
 
-export function MemoryForm() {
+export function MemoryForm({ destinations, selectedDestinationId }: { destinations: Pick<Destination, "id" | "name" | "region">[]; selectedDestinationId?: string }) {
   const [state, action, pending] = useActionState(createMemory, initialState);
+  const selectedDestination = destinations.find((item) => item.id === selectedDestinationId);
   const [files, setFiles] = useState<File[]>([]);
   const [error, setError] = useState<string | null>(null);
   const fileInput = useRef<HTMLInputElement>(null);
@@ -34,9 +36,10 @@ export function MemoryForm() {
     <form action={action} className="grid gap-8 rounded-[2rem] bg-white p-6 shadow-xl shadow-slate-900/5 ring-1 ring-slate-200 md:p-10">
       <div className="grid gap-6 md:grid-cols-2">
         <div><Label htmlFor="title">Travel title</Label><Input id="title" name="title" required minLength={3} placeholder="A sunrise I will never forget" /></div>
-        <div><Label htmlFor="destinationName">Destination</Label><Input id="destinationName" name="destinationName" required placeholder="Munnar" /></div>
+        <div><Label htmlFor="destinationName">Destination</Label><Input id="destinationName" name="destinationName" required defaultValue={selectedDestination?.name} placeholder="Munnar" /></div>
+        <div className="md:col-span-2"><Label htmlFor="destinationId">Link to a known destination (optional)</Label><select id="destinationId" name="destinationId" defaultValue={selectedDestinationId ?? ""} className="min-h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 text-[#123a50]"><option value="">No catalogue link</option>{destinations.map((destination) => <option key={destination.id} value={destination.id}>{destination.name}{destination.region ? ` · ${destination.region}` : ""}</option>)}</select><p className="mt-2 text-xs text-slate-500">Choose a catalogue place to feature this story on its destination page. Your destination text stays editable.</p></div>
         <div><Label htmlFor="locationVisited">Specific location</Label><Input id="locationVisited" name="locationVisited" required placeholder="Tea Museum Road" /></div>
-        <div><Label htmlFor="country">Country</Label><Input id="country" name="country" required placeholder="India" /></div>
+        <div><Label htmlFor="country">Country</Label><Input id="country" name="country" required defaultValue={selectedDestination ? "India" : undefined} placeholder="India" /></div>
         <div><Label htmlFor="travelDate">Travel date</Label><Input id="travelDate" name="travelDate" type="date" required /></div>
         <div><Label htmlFor="category">Category</Label><Input id="category" name="category" placeholder="Nature, beach, city…" /></div>
       </div>

@@ -5,15 +5,23 @@ import { CalendarDays, Clock3, Heart, IndianRupee, Lightbulb, MapPin, Star, User
 import { getMemory } from "@/lib/data";
 import { formatDate } from "@/lib/utils";
 import { MemoryActions } from "@/components/memory-actions";
+import { MemoryComments } from "@/components/memory-comments";
 import { getMediaCredit } from "@/lib/media-credits";
+import { getMemoryComments } from "@/lib/social-data";
+import { getCurrentUser } from "@/lib/supabase/server";
 
-export default async function MemoryPage({ params }: { params: Promise<{ id: string }> }) {
-  const { id } = await params;
+export default async function MemoryPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ comments?: string }> }) {
+  const [{ id }, query] = await Promise.all([params, searchParams]);
   const memory = await getMemory(id);
   if (!memory) notFound();
   const author = memory.profile?.display_name ?? "TRAVELY member";
   const initials = author.split(" ").map((part) => part[0]).join("").slice(0, 2);
   const isPreview = !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(memory.id);
+  const commentPage = Math.min(60, Math.max(1, Number.parseInt(query.comments ?? "1", 10) || 1));
+  const [viewer, commentData] = await Promise.all([
+    getCurrentUser(),
+    !isPreview && memory.visibility === "public" ? getMemoryComments(memory.id, commentPage) : Promise.resolve(null),
+  ]);
 
   return (
     <article>
@@ -55,6 +63,7 @@ export default async function MemoryPage({ params }: { params: Promise<{ id: str
             <div className="rounded-[1.75rem] bg-orange-50 p-6"><Lightbulb className="text-[#e96536]" /><h2 className="mt-4 font-bold text-[#123a50]">Traveler’s practical tips</h2><p className="mt-2 leading-7 text-slate-600">{memory.travel_tips || "No tips were added to this journey."}</p></div>
           </aside>
         </div>
+        {commentData && <div className="mx-auto max-w-6xl">{commentData.error ? <p role="alert" className="mt-6 rounded-2xl bg-amber-50 p-6 text-amber-900">{commentData.error}</p> : <MemoryComments memoryId={memory.id} comments={commentData.comments} count={commentData.count} page={commentPage} viewerId={viewer?.id ?? null} />}</div>}
       </section>
     </article>
   );
