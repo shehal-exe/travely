@@ -37,14 +37,15 @@ function MapController({ destinations, expanded }: { destinations: Destination[]
 }
 
 export default function TravelMapInner({ destinations, expanded }: { destinations: Destination[]; expanded: boolean }) {
-  const points = destinations.flatMap((item) => item.latitude != null && item.longitude != null ? [[item.latitude, item.longitude] as [number, number]] : []);
+  const mappedDestinations = destinations.filter((item) => item.latitude != null && item.longitude != null);
+  const points = mappedDestinations.map((item) => [item.latitude!, item.longitude!] as [number, number]);
   return (
     <div className={`w-full transition-[height] duration-500 ${expanded ? "h-[72vh] min-h-[560px]" : "h-[460px]"}`}>
       <MapContainer center={indiaCenter} zoom={4} minZoom={3} maxZoom={18} maxBounds={indiaBounds} maxBoundsViscosity={0.75} scrollWheelZoom touchZoom doubleClickZoom dragging keyboard keyboardPanDelta={120} boxZoom zoomControl={false} zoomSnap={0.25} zoomDelta={0.5} wheelDebounceTime={25} wheelPxPerZoomLevel={120} bounceAtZoomLimits={false} className="h-full w-full" aria-label="Interactive map of India destinations">
         <TileLayer attribution='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <MapController destinations={destinations} expanded={expanded} />
         <MapInteractionControls points={points} fallback={indiaCenter} label="Interactive map of India destinations" />
-        {destinations.map((destination) => (
+        {mappedDestinations.map((destination) => (
           <Marker key={destination.id} position={[destination.latitude!, destination.longitude!]} icon={icon}>
             <Popup>
               <span className="text-xs font-semibold uppercase tracking-wide text-teal-700">{destination.category?.name ?? "Destination"}</span>

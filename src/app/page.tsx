@@ -47,7 +47,7 @@ export default async function Home() {
           <div className="grid gap-5 md:grid-cols-3">
             {places.map((destination, index) => (
               <Reveal key={destination.id} delay={index * 0.08}>
-                <DestinationCard destination={destination} />
+                <DestinationCard destination={destination} priority={index === 0} />
               </Reveal>
             ))}
           </div>

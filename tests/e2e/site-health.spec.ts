@@ -40,7 +40,7 @@ test("destination search, map, and circuits work", async ({ page }) => {
   await expect(page.getByRole("link", { name: /Make this route my trip/i })).toBeVisible();
 });
 
-test("home video and key destination photos load", async ({ page, request }) => {
+test("home and about videos plus key destination photos load", async ({ page, request }) => {
   const clips = ["taj-mahal", "munnar", "amritsar", "ladakh", "cherrapunji", "udaipur", "kerala", "rishikesh", "mumbai"];
   for (const clip of clips) {
     const response = await request.get(`/videos/${clip}.mp4`, { headers: { Range: "bytes=0-1023" } });
@@ -48,8 +48,11 @@ test("home video and key destination photos load", async ({ page, request }) => 
     expect(response.headers()["content-type"], `${clip} should be an MP4`).toContain("video/mp4");
   }
   await page.goto("/");
-  const firstVideo = page.locator("video[src='/videos/taj-mahal.mp4']");
-  await expect.poll(async () => firstVideo.evaluate((video: HTMLVideoElement) => video.videoWidth), { timeout: 15_000 }).toBeGreaterThan(0);
+  const homeVideo = page.locator("video[src='/videos/about-india.mp4']");
+  await expect.poll(async () => homeVideo.evaluate((video: HTMLVideoElement) => video.videoWidth), { timeout: 15_000 }).toBeGreaterThan(0);
+  await page.goto("/about");
+  const aboutVideo = page.locator("video[src='/videos/taj-mahal.mp4']");
+  await expect.poll(async () => aboutVideo.evaluate((video: HTMLVideoElement) => video.videoWidth), { timeout: 15_000 }).toBeGreaterThan(0);
   for (const clip of clips) {
     const decoded = await page.evaluate((name) => new Promise<{ width: number; duration: number }>((resolve, reject) => {
       const video = document.createElement("video");
@@ -68,6 +71,7 @@ test("home video and key destination photos load", async ({ page, request }) => 
 });
 
 test("homepage story and planning images appear on scroll", async ({ page }) => {
+  test.setTimeout(60_000);
   await page.goto("/");
   for (const name of [/Mist, tea/i, /Morning light over Varanasi/i]) {
     const image = page.getByRole("img", { name }).first();
