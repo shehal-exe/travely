@@ -11,7 +11,7 @@ export default async function DestinationsPage({ searchParams }: { searchParams:
   const destinations = await getFeaturedDestinations();
   return (
     <>
-      <section className="relative isolate flex min-h-[520px] items-center overflow-hidden bg-[#0b3447] py-24 text-white lg:min-h-[580px] lg:py-28">
+      <section className="relative isolate flex min-h-[470px] items-center overflow-hidden bg-[#0b3447] py-20 text-white lg:min-h-[500px] lg:py-24">
         <Image src="/images/travel/commons/destination/jaipur.jpg" alt="" fill priority className="-z-20 object-cover object-center" sizes="100vw" />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#061f2c]/95 via-[#0b3447]/72 to-[#0b3447]/20" />
         <div className="section-shell"><Reveal y={18}><p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-200">Explore India</p><h1 className="mt-3 font-serif text-5xl font-semibold sm:text-6xl">Where to next?</h1><p className="mt-4 max-w-xl text-base leading-7 text-slate-100 sm:text-lg">Find a place that feels right, explore the map, or follow a ready-made route.</p></Reveal></div>
