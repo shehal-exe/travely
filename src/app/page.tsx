@@ -25,7 +25,7 @@ export default async function Home() {
       <Hero />
       <CoreFeaturePath />
 
-      <section className="bg-[#f5f3ed] py-20 lg:py-28" aria-labelledby="places-heading">
+      <section className="bg-[#f4f8f6] py-20 lg:py-28" aria-labelledby="places-heading">
         <div className="section-shell">
           <Reveal>
             <div className="mb-9 flex flex-wrap items-end justify-between gap-4">
@@ -123,7 +123,7 @@ export default async function Home() {
                 Keep your places, route, budget, and notes together—without losing the joy of discovering what comes next.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-4">
-                <Link href="/plan" className="inline-flex items-center gap-2 rounded-full bg-[#e96536] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#d9562b]">
+                <Link href="/plan" className="inline-flex items-center gap-2 rounded-full bg-[#0d6d67] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#095b57]">
                   Plan a trip <ArrowRight size={17} aria-hidden />
                 </Link>
                 <Link href="/journal/new" className="text-sm font-semibold text-white/90 hover:underline">Share your journey</Link>

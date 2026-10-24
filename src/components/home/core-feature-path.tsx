@@ -33,7 +33,7 @@ const journeySteps = [
     action: "Start planning",
     icon: Route,
     features: ["Ready-made routes", "Budget tracker", "Trip planner"],
-    tone: "bg-[#fff0e6] text-[#c84f24]",
+    tone: "bg-[#e8f1f5] text-[#123a50]",
   },
   {
     number: "03",
@@ -43,7 +43,7 @@ const journeySteps = [
     action: "Read stories",
     icon: UsersRound,
     features: ["Traveller stories", "Photos & ratings", "Social discovery"],
-    tone: "bg-[#edf2ff] text-[#4059a9]",
+    tone: "bg-[#edf6f3] text-[#0d6d67]",
   },
   {
     number: "04",
@@ -53,7 +53,7 @@ const journeySteps = [
     action: "Open your journal",
     icon: BookHeart,
     features: ["Private journal", "Saved places", "Travel profile"],
-    tone: "bg-[#f5ecff] text-[#70449a]",
+    tone: "bg-[#e9f0f3] text-[#123a50]",
   },
 ] as const;
 
@@ -68,9 +68,9 @@ export function CoreFeaturePath() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden bg-[#fffdf8] py-20 lg:py-28" aria-labelledby="journey-heading">
+    <section className="relative overflow-hidden bg-white py-20 lg:py-28" aria-labelledby="journey-heading">
       <div aria-hidden className="absolute -right-36 top-8 size-80 rounded-full bg-[#c9eee6]/45 blur-3xl" />
-      <div aria-hidden className="absolute -left-40 bottom-0 size-80 rounded-full bg-[#ffd9bf]/45 blur-3xl" />
+      <div aria-hidden className="absolute -left-40 bottom-0 size-80 rounded-full bg-[#dcebea]/55 blur-3xl" />
 
       <div className="section-shell relative">
         <div className="grid gap-7 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
@@ -129,7 +129,7 @@ export function CoreFeaturePath() {
                   <ul className="mt-5 space-y-2" aria-label={`${step.title} features`}>
                     {step.features.map((feature) => (
                       <li key={feature} className="flex items-center gap-2 text-sm font-semibold text-[#29495a]">
-                        <span className="size-1.5 rounded-full bg-[#e96536]" aria-hidden /> {feature}
+                        <span className="size-1.5 rounded-full bg-[#0d6d67]" aria-hidden /> {feature}
                       </li>
                     ))}
                   </ul>

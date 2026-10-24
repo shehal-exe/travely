@@ -202,7 +202,7 @@ export function Hero() {
               transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
               className="font-serif text-[2.8rem] font-semibold leading-[1.04] sm:text-6xl lg:text-[4.7rem]"
             >
-              Discover India.<br /><em className="font-normal text-orange-300">Make every mile yours.</em>
+              Discover India.<br /><em className="font-normal text-emerald-200">Make every mile yours.</em>
             </motion.h1>
             <motion.p
               initial={reduceMotion ? false : { opacity: 0, y: 20 }}
@@ -224,7 +224,7 @@ export function Hero() {
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#0d6d67]" size={19} aria-hidden />
                 <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search Goa, Ladakh, Varanasi…" className="min-h-12 w-full rounded-xl bg-transparent pl-12 pr-4 text-[#123a50] outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-[#0d6d67]/20" />
               </label>
-              <button type="submit" className="min-h-12 rounded-xl bg-[#e96536] px-6 text-sm font-bold text-white transition hover:bg-[#d9562b] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Find a place <ArrowRight size={17} className="ml-1 inline" aria-hidden /></button>
+              <button type="submit" className="min-h-12 rounded-xl bg-[#0d6d67] px-6 text-sm font-bold text-white transition hover:bg-[#095b57] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Find a place <ArrowRight size={17} className="ml-1 inline" aria-hidden /></button>
             </motion.form>
             <motion.div
               initial={reduceMotion ? false : { opacity: 0 }}
@@ -253,7 +253,7 @@ export function Hero() {
                     onClick={() => selectVideo(index)}
                     aria-label={`Show ${item.label}`}
                     aria-pressed={index === activeVideo}
-                    className={`h-1.5 rounded-full transition-all duration-500 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white ${index === activeVideo ? "w-9 bg-orange-300" : "w-2.5 bg-white/45 hover:bg-white/80"}`}
+                    className={`h-1.5 rounded-full transition-all duration-500 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white ${index === activeVideo ? "w-9 bg-emerald-200" : "w-2.5 bg-white/45 hover:bg-white/80"}`}
                   />
                 ))}
               </motion.div>

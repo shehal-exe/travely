@@ -55,7 +55,7 @@ export function Header() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#e8e9e3] bg-[#fffdf8]/95 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[#dbe6e2] bg-white/95 backdrop-blur-xl">
       <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-5 lg:px-8">
         <Link href="/" className="flex items-center gap-2.5 text-lg font-black tracking-[0.14em] text-[#123a50]">
           <span className="grid size-9 place-items-center rounded-full bg-[#0d6d67] text-white"><Compass size={18} /></span>
@@ -113,10 +113,10 @@ export function Header() {
             {account.signedIn ? <>
               {account.admin && <Link href="/admin" onClick={() => setOpen(false)} className="rounded-xl border border-slate-200 px-4 py-3 text-center font-semibold">Admin</Link>}
               <Link href="/journal" onClick={() => setOpen(false)} className="rounded-xl border border-slate-200 px-4 py-3 text-center font-semibold">My journal</Link>
-              <form action={signOut}><button type="submit" className="w-full rounded-xl bg-[#e96536] px-4 py-3 text-center font-semibold text-white">Log out</button></form>
+              <form action={signOut}><button type="submit" className="w-full rounded-xl bg-[#0d6d67] px-4 py-3 text-center font-semibold text-white">Log out</button></form>
             </> : <>
               <Link href="/auth/login" onClick={() => setOpen(false)} className="mt-2 rounded-xl border border-slate-200 px-4 py-3 text-center font-semibold">Log in</Link>
-              <Link href="/auth/sign-up" onClick={() => setOpen(false)} className="rounded-xl bg-[#e96536] px-4 py-3 text-center font-semibold text-white">Join TRAVELY</Link>
+              <Link href="/auth/sign-up" onClick={() => setOpen(false)} className="rounded-xl bg-[#0d6d67] px-4 py-3 text-center font-semibold text-white">Join TRAVELY</Link>
             </>}
           </div>
         </nav>

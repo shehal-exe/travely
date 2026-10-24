@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="antialiased" data-scroll-behavior="smooth">
-      <body className="min-h-screen bg-[#fffdf8] font-sans text-slate-900">
+      <body className="min-h-screen bg-background font-sans text-slate-900">
         <ScrollProgress />
         <Header />
         <main>{children}</main>
