@@ -1,5 +1,10 @@
 .git
 .next
+.next-build
+.next-final
 node_modules
+.npm-cache
+playwright-report
+test-results
 *.log
 public/travely-project-2026-10-22.zip

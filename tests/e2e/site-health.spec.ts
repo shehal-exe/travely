@@ -73,7 +73,7 @@ test("home and about videos plus key destination photos load", async ({ page, re
 test("homepage story and planning images appear on scroll", async ({ page }) => {
   test.setTimeout(60_000);
   await page.goto("/");
-  for (const name of [/Mist, tea/i, /Morning light over Varanasi/i]) {
+  for (const name of [/Mist, tea/i, /Morning light over the ghats of Varanasi/i]) {
     const image = page.getByRole("img", { name }).first();
     await image.scrollIntoViewIfNeeded();
     await expect.poll(async () => image.evaluate((element: HTMLImageElement) => element.naturalWidth), { timeout: 15_000 }).toBeGreaterThan(0);
