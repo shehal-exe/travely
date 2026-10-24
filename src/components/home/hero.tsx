@@ -3,74 +3,8 @@
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { ArrowRight, MapPin, Search } from "lucide-react";
-
-const heroMedia = [
-  {
-    kind: "video",
-    src: "/videos/taj-mahal.mp4",
-    label: "Taj Mahal · Agra, Uttar Pradesh",
-    credit: "Dr Photographer",
-    page: "https://www.pexels.com/video/majestic-sunrise-over-historic-taj-mahal-33588459/",
-  },
-  {
-    kind: "video",
-    src: "/videos/munnar.mp4",
-    label: "Tea-covered hills · Munnar, Kerala",
-    credit: "Anil Sharma",
-    page: "https://www.pexels.com/video/aerial-view-of-lush-green-hills-in-munnar-35440608/",
-  },
-  {
-    kind: "video",
-    src: "/videos/amritsar.mp4",
-    label: "Golden Temple at sunset · Amritsar, Punjab",
-    credit: "Shalender Kumar",
-    page: "https://www.pexels.com/video/india-s-golden-temple-6576610/",
-  },
-  {
-    kind: "video",
-    src: "/videos/ladakh.mp4",
-    label: "Snow mountains · Leh–Ladakh",
-    credit: "Vipul Sharma",
-    page: "https://www.pexels.com/video/4k-60fps-drone-shots-leh-ladakh-snow-mountains-18830352/",
-  },
-  {
-    kind: "video",
-    src: "/videos/cherrapunji.mp4",
-    label: "Waterfall country · Cherrapunji, Meghalaya",
-    credit: "Vikash Singh",
-    page: "https://www.pexels.com/video/magnificent-falling-waterfall-in-lush-greenery-31696691/",
-  },
-  {
-    kind: "video",
-    src: "/videos/udaipur.mp4",
-    label: "Lake Pichola · Udaipur, Rajasthan",
-    credit: "Henil Patel",
-    page: "https://www.pexels.com/video/scenic-view-of-lake-pichola-in-udaipur-37465315/",
-  },
-  {
-    kind: "video",
-    src: "/videos/kerala.mp4",
-    label: "Emerald countryside · Kerala",
-    credit: "Swagath Mohan",
-    page: "https://www.pexels.com/video/aerial-view-of-lush-green-kerala-landscape-35000186/",
-  },
-  {
-    kind: "video",
-    src: "/videos/rishikesh.mp4",
-    label: "Himalayan river valley · Rishikesh, Uttarakhand",
-    credit: "Nitin Khajotia",
-    page: "https://www.pexels.com/video/a-river-flowing-through-a-valley-surrounded-by-mountains-19096560/",
-  },
-  {
-    kind: "video",
-    src: "/videos/mumbai.mp4",
-    label: "Gateway of India · Mumbai, Maharashtra",
-    credit: "Yash Kanbargi",
-    page: "https://www.pexels.com/video/gate-way-of-india-28002608/",
-  },
-] as const;
 
 const heroPoster = "/videos/hero-poster.jpg";
 
@@ -78,109 +12,28 @@ export function Hero() {
   const router = useRouter();
   const [query, setQuery] = useState("");
   const reduceMotion = useReducedMotion();
-  const [activeVideo, setActiveVideo] = useState(0);
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const backgroundY = useTransform(scrollYProgress, [0, 1], [0, 64]);
   const contentY = useTransform(scrollYProgress, [0, 1], [0, -24]);
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
-  const transitionTimer = useRef<number | null>(null);
-  const isTransitioning = useRef(false);
-  const media = heroMedia[activeVideo];
-
-  useEffect(() => {
-    return () => {
-      if (transitionTimer.current !== null) window.clearTimeout(transitionTimer.current);
-    };
-  }, []);
-
-  function keepPlaying(index: number) {
-    const current = videoRefs.current[index];
-    if (!current || index !== activeVideo || reduceMotion) return;
-    current.currentTime = 0;
-    void current.play();
-  }
-
-  function advanceVideo(index: number) {
-    if (index !== activeVideo || isTransitioning.current || reduceMotion) return;
-
-    const current = videoRefs.current[index];
-    const nextIndex = (index + 1) % heroMedia.length;
-    const next = videoRefs.current[nextIndex];
-
-    if (!current) return;
-
-    if (!next || next.readyState < HTMLMediaElement.HAVE_FUTURE_DATA) {
-      if (current?.ended) keepPlaying(index);
-      return;
-    }
-
-    isTransitioning.current = true;
-    const showNext = () => {
-      setActiveVideo(nextIndex);
-      transitionTimer.current = window.setTimeout(() => {
-        current.pause();
-        current.currentTime = 0;
-        isTransitioning.current = false;
-      }, 1100);
-    };
-
-    next.currentTime = 0;
-    void next.play().then(showNext).catch(() => {
-      isTransitioning.current = false;
-      keepPlaying(index);
-    });
-  }
-
-  function selectVideo(nextIndex: number) {
-    if (nextIndex === activeVideo || reduceMotion || isTransitioning.current) return;
-
-    const current = videoRefs.current[activeVideo];
-    const next = videoRefs.current[nextIndex];
-    if (!next) return;
-
-    if (transitionTimer.current !== null) window.clearTimeout(transitionTimer.current);
-    isTransitioning.current = true;
-    next.currentTime = 0;
-    void next.play().then(() => {
-      setActiveVideo(nextIndex);
-      transitionTimer.current = window.setTimeout(() => {
-        if (current) {
-          current.pause();
-          current.currentTime = 0;
-        }
-        isTransitioning.current = false;
-      }, 1100);
-    }).catch(() => {
-      isTransitioning.current = false;
-    });
-  }
 
   return (
     <section ref={heroRef} className="relative isolate min-h-[calc(100svh-76px)] overflow-hidden bg-[#0b3447] text-white">
       <motion.div className="pointer-events-none absolute -inset-10" style={reduceMotion ? undefined : { y: backgroundY }}>
         <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${heroPoster})` }} />
-        {!reduceMotion && heroMedia.map((item, index) => (
+        {!reduceMotion && (
           <video
-            key={item.src}
-            ref={(element) => { videoRefs.current[index] = element; }}
-            className={`absolute inset-0 size-full object-cover saturate-[1.12] contrast-[1.04] transition-opacity duration-1000 ${index === activeVideo ? "opacity-100" : "opacity-0"}`}
-            src={item.src}
-            autoPlay={index === 0}
+            className="absolute inset-0 size-full object-cover saturate-[1.12] contrast-[1.04]"
+            src="/videos/about-india.mp4"
+            autoPlay
+            loop
             muted
             playsInline
-            preload={index === activeVideo || index === (activeVideo + 1) % heroMedia.length ? "auto" : "none"}
-            poster={index === 0 ? heroPoster : undefined}
-            onCanPlay={() => { if (index === activeVideo && videoRefs.current[index]?.paused) void videoRefs.current[index]?.play(); }}
-            onTimeUpdate={(event) => {
-              const element = event.currentTarget;
-              const displayUntil = Math.min(element.duration, 11);
-              if (displayUntil - element.currentTime <= 1.25) advanceVideo(index);
-            }}
-            onEnded={() => keepPlaying(index)}
+            preload="auto"
+            poster={heroPoster}
             aria-hidden
           />
-        ))}
+        )}
       </motion.div>
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,29,42,.94),rgba(5,35,50,.68)_55%,rgba(5,35,50,.2))]" />
       <div className="absolute inset-0 bg-gradient-to-t from-[#061f2d]/70 via-transparent to-transparent" />
@@ -237,39 +90,10 @@ export function Hero() {
               <Link href="/explore" className="hover:underline">Read travel stories</Link>
             </motion.div>
 
-            {!reduceMotion && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="mt-9 flex items-center gap-3"
-                aria-label="Choose background destination"
-              >
-                <span className="mr-1 text-[11px] font-bold uppercase tracking-[.16em] text-white/65">Across India</span>
-                {heroMedia.map((item, index) => (
-                  <button
-                    key={item.src}
-                    type="button"
-                    onClick={() => selectVideo(index)}
-                    aria-label={`Show ${item.label}`}
-                    aria-pressed={index === activeVideo}
-                    className={`h-1.5 rounded-full transition-all duration-500 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white ${index === activeVideo ? "w-9 bg-emerald-200" : "w-2.5 bg-white/45 hover:bg-white/80"}`}
-                  />
-                ))}
-              </motion.div>
-            )}
           </motion.div>
 
         </div>
       </div>
-      <a
-        href={media.page}
-        target="_blank"
-        rel="noreferrer"
-        className="absolute bottom-6 right-8 hidden rounded-2xl border border-white/20 bg-black/30 px-4 py-3 text-xs text-white/85 backdrop-blur transition hover:bg-black/50 md:block"
-      >
-        {media.label} · Video by {media.credit} / Pexels
-      </a>
     </section>
   );
 }

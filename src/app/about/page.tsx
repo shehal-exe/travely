@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Camera, Compass, Heart } from "lucide-react";
+import { DestinationVideoBackground } from "@/components/media/destination-video-background";
 import { Reveal } from "@/components/motion/reveal";
 import { buttonClasses } from "@/components/ui/button";
 
@@ -13,9 +14,7 @@ export default function AboutPage() {
   return (
     <>
       <section id="about" className="relative isolate flex min-h-[590px] scroll-mt-24 items-center overflow-hidden bg-[#082f3d] text-white">
-        <video autoPlay loop muted playsInline preload="metadata" aria-hidden className="absolute inset-0 -z-20 h-full w-full object-cover">
-          <source src="/videos/about-india.mp4" type="video/mp4" />
-        </video>
+        <DestinationVideoBackground />
         <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#061f35]/95 via-[#06453f]/75 to-[#082f3d]/30" />
         <div className="section-shell w-full py-24">
           <Reveal y={18}>
