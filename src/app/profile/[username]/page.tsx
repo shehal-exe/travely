@@ -26,7 +26,7 @@ export default async function PublicProfilePage({ params }: { params: Promise<{ 
     if (data) {
       profile = data as Profile;
       isLive = true;
-      const { data: rows } = await supabase.from("travel_memories").select("*, images:memory_images(*)").eq("user_id", profile.id).eq("visibility", "public").order("travel_date", { ascending: false }).limit(30);
+      const { data: rows } = await supabase.from("travel_memories").select("*, images:memory_images!memory_images_memory_id_fkey(*)").eq("user_id", profile.id).eq("visibility", "public").order("travel_date", { ascending: false }).limit(30);
       memories = await signMemoryImages(supabase, (rows as TravelMemory[] | null) ?? []);
     }
   }

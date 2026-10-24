@@ -2,6 +2,7 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { categoryGuides } from "./category-guides";
+import { travelCircuits } from "./circuits";
 import { demoDestinations, demoMemories } from "./demo";
 import { commonsCredits } from "@/lib/media-credits";
 import commonsSources from "./commons-source-map.json";
@@ -18,7 +19,16 @@ describe("curated photo assignments", () => {
   it("has a multi-photo walkthrough for every featured destination", () => {
     for (const destination of demoDestinations) {
       expect(destination.gallery_images?.length).toBeGreaterThanOrEqual(2);
+      expect(new Set(destination.gallery_images).size).toBe(destination.gallery_images?.length);
       for (const image of destination.gallery_images ?? []) expect(existsSync(localFile(image))).toBe(true);
+    }
+  });
+
+  it("keeps every route cover and slideshow varied", () => {
+    for (const circuit of travelCircuits) {
+      const photos = [circuit.image, ...circuit.slides];
+      expect(new Set(photos).size).toBe(photos.length);
+      for (const photo of photos) expect(existsSync(localFile(photo))).toBe(true);
     }
   });
 

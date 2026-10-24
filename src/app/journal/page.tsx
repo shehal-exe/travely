@@ -14,7 +14,7 @@ export default async function JournalPage() {
   if (!user || !supabase) return <section className="section-shell py-24 text-center"><p className="eyebrow">Your private travel space</p><h1 className="mt-3 font-serif text-5xl font-semibold text-[#123a50]">Your journey starts here.</h1><p className="mx-auto mt-5 max-w-xl leading-7 text-slate-600">Keep private memories, manage public stories, and revisit every place that inspired you.</p><Link href="/auth/login" className={buttonClasses({ className: "mt-7" })}>Log in to your portal</Link></section>;
 
   const [memoriesResult, profileResult, savesResult, roleResult] = await Promise.all([
-    supabase.from("travel_memories").select("*, images:memory_images(*)").eq("user_id", user.id).order("travel_date", { ascending: false }),
+    supabase.from("travel_memories").select("*, images:memory_images!memory_images_memory_id_fkey(*)").eq("user_id", user.id).order("travel_date", { ascending: false }),
     supabase.from("profiles").select("*").eq("id", user.id).maybeSingle(),
     supabase.from("saved_memories").select("user_id", { count: "exact", head: true }).eq("user_id", user.id),
     supabase.from("user_roles").select("role").eq("user_id", user.id).eq("role", "admin").maybeSingle(),

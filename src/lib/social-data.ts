@@ -1,5 +1,6 @@
 import { getSupabaseServer } from "@/lib/supabase/server";
 import { signMemoryImages } from "@/lib/data";
+import { demoMemories } from "@/data/demo";
 import type { MemoryComment, Profile, TravelMemory } from "@/types/database";
 
 const pageSize = 12;
@@ -8,11 +9,27 @@ const uuidPattern = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{1
 export type SocialFeed = { memories: TravelMemory[]; hasMore: boolean; error?: string };
 export type SocialFilters = { search: string; rating: number; duration: "all" | "short" | "long"; sort: "newest" | "rating" | "budget" };
 
+function getDemoFeed(filters: SocialFilters) {
+  const term = filters.search.trim().toLowerCase();
+  const memories = demoMemories.filter((memory) => {
+    if (term && !`${memory.destination_name} ${memory.location_visited} ${memory.title}`.toLowerCase().includes(term)) return false;
+    if (filters.rating && memory.rating < filters.rating) return false;
+    if (filters.duration === "short" && (memory.days_spent ?? Number.POSITIVE_INFINITY) > 3) return false;
+    if (filters.duration === "long" && (memory.days_spent ?? 0) < 4) return false;
+    return true;
+  });
+  return memories.sort((a, b) => {
+    if (filters.sort === "rating") return b.rating - a.rating;
+    if (filters.sort === "budget") return (a.total_expense ?? Number.POSITIVE_INFINITY) - (b.total_expense ?? Number.POSITIVE_INFINITY);
+    return b.created_at.localeCompare(a.created_at);
+  });
+}
+
 export async function getSocialFeed(mode: "discover" | "following", page: number, filters: SocialFilters): Promise<SocialFeed> {
   const supabase = await getSupabaseServer();
   if (!supabase) return { memories: [], hasMore: false, error: "Connect the database to explore community stories." };
   const offset = (page - 1) * pageSize;
-  const selection = "*, profile:profiles(*), images:memory_images(*)";
+  const selection = "*, profile:profiles!travel_memories_user_id_fkey(*), images:memory_images!memory_images_memory_id_fkey(*)";
   let ids: string[] | null = null;
 
   if (mode === "following") {
@@ -39,6 +56,7 @@ export async function getSocialFeed(mode: "discover" | "following", page: number
   const { data, error } = await query;
   if (error) return { memories: [], hasMore: false, error: "Stories could not be loaded. Please try again." };
   const rows = (data ?? []) as TravelMemory[];
+  if (mode === "discover" && page === 1 && rows.length === 0) return { memories: getDemoFeed(filters), hasMore: false };
   const ordered = ids ? ids.slice(0, pageSize).flatMap((id) => rows.find((row) => row.id === id) ?? []) : rows.slice(0, pageSize);
   return { memories: await signMemoryImages(supabase, ordered), hasMore: ids ? ids.length > pageSize : rows.length > pageSize };
 }
@@ -79,7 +97,7 @@ export async function getMemoryComments(memoryId: string, page: number): Promise
   const supabase = await getSupabaseServer();
   if (!supabase || !uuidPattern.test(memoryId)) return { comments: [], count: 0 };
   const { data, count, error } = await supabase.from("memory_comments")
-    .select("*, author:profiles(*)", { count: "exact" })
+    .select("*, author:profiles!memory_comments_author_id_fkey(*)", { count: "exact" })
     .eq("memory_id", memoryId)
     .order("created_at", { ascending: false })
     .range((page - 1) * 20, page * 20 - 1);
@@ -91,7 +109,7 @@ export async function getDestinationStories(destinationId: string): Promise<{ me
   const supabase = await getSupabaseServer();
   if (!supabase || !uuidPattern.test(destinationId)) return { memories: [] };
   const { data, error } = await supabase.from("travel_memories")
-    .select("*, profile:profiles(*), images:memory_images(*)")
+    .select("*, profile:profiles!travel_memories_user_id_fkey(*), images:memory_images!memory_images_memory_id_fkey(*)")
     .eq("destination_id", destinationId).eq("visibility", "public")
     .order("created_at", { ascending: false }).limit(6);
   if (error) return { memories: [], error: "Traveller stories are temporarily unavailable." };

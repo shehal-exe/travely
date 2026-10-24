@@ -70,7 +70,7 @@ export async function getPublicMemories(): Promise<TravelMemory[]> {
   if (!supabase) return demoMemories;
   const { data } = await supabase
     .from("travel_memories")
-    .select("*, profile:profiles(*), images:memory_images(*), likes:memory_likes(count)")
+    .select("*, profile:profiles!travel_memories_user_id_fkey(*), images:memory_images!memory_images_memory_id_fkey(*), likes:memory_likes!memory_likes_memory_id_fkey(count)")
     .eq("visibility", "public")
     .order("created_at", { ascending: false })
     .limit(24);
@@ -103,7 +103,7 @@ export async function getMemory(id: string): Promise<TravelMemory | null> {
   if (!supabase) return demoMemories.find((item) => item.id === id) ?? null;
   const { data } = await supabase
     .from("travel_memories")
-    .select("*, profile:profiles(*), images:memory_images(*), likes:memory_likes(count)")
+    .select("*, profile:profiles!travel_memories_user_id_fkey(*), images:memory_images!memory_images_memory_id_fkey(*), likes:memory_likes!memory_likes_memory_id_fkey(count)")
     .eq("id", id)
     .maybeSingle();
   if (!data) return demoMemories.find((item) => item.id === id) ?? null;

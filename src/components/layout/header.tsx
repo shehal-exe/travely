@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ChevronDown, Compass, Menu, X } from "lucide-react";
+import { BookOpen, Bookmark, ChevronDown, Compass, Images, Map, MapPin, Menu, NotebookPen, Route, Shapes, X } from "lucide-react";
 import { signOut } from "@/actions/auth";
 import { buttonClasses } from "@/components/ui/button";
 import { getSupabaseBrowser } from "@/lib/supabase/client";
@@ -13,10 +13,10 @@ const links = [
     label: "Discover",
     href: "/destinations",
     children: [
-      ["All destinations", "/destinations"],
-      ["Travel styles", "/categories"],
-      ["Map", "/destinations?view=map"],
-      ["Routes", "/destinations?view=routes"],
+      { label: "All destinations", href: "/destinations", Icon: MapPin },
+      { label: "Travel styles", href: "/categories", Icon: Shapes },
+      { label: "Explore map", href: "/destinations?view=map", Icon: Map },
+      { label: "Travel routes", href: "/destinations?view=routes", Icon: Route },
     ],
   },
   { label: "Plan", href: "/plan" },
@@ -24,10 +24,10 @@ const links = [
     label: "Stories",
     href: "/explore",
     children: [
-      ["Travel stories", "/explore"],
-      ["Photo gallery", "/gallery"],
-      ["My journal", "/journal"],
-      ["Saved inspiration", "/saved"],
+      { label: "Travel stories", href: "/explore", Icon: BookOpen },
+      { label: "Photo gallery", href: "/gallery", Icon: Images },
+      { label: "My journal", href: "/journal", Icon: NotebookPen },
+      { label: "Saved inspiration", href: "/saved", Icon: Bookmark },
     ],
   },
   { label: "About", href: "/about" },
@@ -64,15 +64,18 @@ export function Header() {
         <nav className="hidden items-center gap-2 lg:flex" aria-label="Primary navigation">
           {links.map((item) => (
             <div key={item.label} className="group relative">
-              <Link href={item.href} aria-current={pathname === item.href ? "page" : undefined} className="flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold text-[#314957] transition hover:bg-[#edf6f3] hover:text-[#0d6d67] aria-[current=page]:text-[#0d6d67]">
+              <Link href={item.href} aria-current={pathname === item.href || ("children" in item && item.children.some((child) => pathname === child.href.split("?")[0])) ? "page" : undefined} aria-haspopup={"children" in item ? "menu" : undefined} className="flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold text-[#314957] transition hover:bg-[#edf6f3] hover:text-[#0d6d67] aria-[current=page]:bg-[#edf6f3] aria-[current=page]:text-[#0d6d67]">
                 {item.label}
                 {"children" in item && <ChevronDown size={14} aria-hidden />}
               </Link>
               {"children" in item && (
-                <div className="pointer-events-none invisible absolute left-0 top-full z-50 min-w-52 translate-y-2 pt-3 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
-                  <div className="rounded-2xl border border-slate-200 bg-white p-2 shadow-xl shadow-slate-900/10">
-                    {item.children.map(([label, href]) => (
-                      <Link key={href} href={href} className="block rounded-xl px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-teal-50 hover:text-[#0d6d67]">{label}</Link>
+                <div className="pointer-events-none invisible absolute left-1/2 top-full z-50 w-80 -translate-x-1/2 translate-y-1 pt-2 opacity-0 transition duration-150 group-hover:pointer-events-auto group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                  <div role="menu" className="grid grid-cols-2 gap-1.5 rounded-[1.25rem] border border-slate-200/90 bg-white/98 p-2.5 shadow-xl shadow-slate-900/10 backdrop-blur-xl">
+                    {item.children.map(({ label, href, Icon }) => (
+                      <Link key={href} href={href} role="menuitem" className="group/item flex min-h-16 items-center gap-3 rounded-2xl px-3 py-2.5 text-sm font-semibold leading-tight text-slate-700 transition hover:bg-[#edf6f3] hover:text-[#0d6d67] focus-visible:bg-[#edf6f3] focus-visible:text-[#0d6d67]">
+                        <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-[#edf6f3] text-[#0d6d67] transition group-hover/item:bg-white"><Icon size={17} /></span>
+                        <span>{label}</span>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -101,8 +104,8 @@ export function Header() {
               <div key={item.label}>
                 <Link href={item.href} onClick={() => setOpen(false)} className="block rounded-xl px-4 py-3 font-semibold text-slate-800 hover:bg-slate-50">{item.label}</Link>
                 {"children" in item && (
-                  <div className="ml-4 border-l border-slate-200 pl-2">
-                    {item.children.map(([label, href]) => <Link key={href} href={href} onClick={() => setOpen(false)} className="block rounded-xl px-4 py-2 text-sm text-slate-600 hover:bg-slate-50">{label}</Link>)}
+                  <div className="grid grid-cols-2 gap-2 pb-2 pl-2">
+                    {item.children.map(({ label, href, Icon }) => <Link key={href} href={href} onClick={() => setOpen(false)} className="flex items-center gap-2 rounded-xl bg-slate-50 px-3 py-2.5 text-sm font-medium text-slate-600 hover:bg-[#edf6f3] hover:text-[#0d6d67]"><Icon size={16} />{label}</Link>)}
                   </div>
                 )}
               </div>
