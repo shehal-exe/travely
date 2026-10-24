@@ -186,7 +186,7 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-t from-[#061f2d]/70 via-transparent to-transparent" />
 
       <div className="section-shell relative flex min-h-[calc(100svh-76px)] items-center py-14 lg:py-16">
-        <div className="grid w-full items-center gap-12 xl:grid-cols-[1fr_360px]">
+        <div className="w-full">
           <motion.div style={reduceMotion ? undefined : { y: contentY }} className="max-w-3xl">
             <motion.p
               initial={reduceMotion ? false : { opacity: 0, y: 14 }}
@@ -260,24 +260,6 @@ export function Hero() {
             )}
           </motion.div>
 
-          <motion.aside
-            initial={reduceMotion ? false : { opacity: 0, x: 34 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="hidden rounded-[1.75rem] border border-white/20 bg-[#062939]/55 p-6 shadow-2xl shadow-black/15 backdrop-blur-md xl:block"
-            aria-label="TRAVELY journey"
-          >
-            <p className="text-xs font-bold uppercase tracking-[.2em] text-emerald-200">Your journey, connected</p>
-            <div className="mt-6 space-y-1">
-              {["Discover a place", "Shape a route", "Share the experience", "Keep the memory"].map((step, index) => (
-                <div key={step} className="group flex items-center gap-4 rounded-2xl p-3 transition hover:bg-white/10">
-                  <span className="grid size-10 shrink-0 place-items-center rounded-full border border-white/25 bg-white/10 font-serif text-sm text-orange-200">0{index + 1}</span>
-                  <span className="font-semibold text-white/90">{step}</span>
-                </div>
-              ))}
-            </div>
-            <p className="mt-5 border-t border-white/15 pt-5 text-sm leading-6 text-white/65">From first spark to lasting story—move through every stage without losing your place.</p>
-          </motion.aside>
         </div>
       </div>
       <a

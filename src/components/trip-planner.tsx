@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState, useTransition } from "react";
@@ -111,7 +112,7 @@ export function TripPlanner({ trips, selected, places, starter, starterTitle, da
   }
 
   return <div className="min-h-screen bg-[#fbf8f2] pb-20">
-    <section className="relative overflow-hidden bg-[#0b3447] py-14 text-white"><div className="section-shell relative"><p className="text-xs font-bold uppercase tracking-[.22em] text-emerald-200">One journey, one workspace</p><h1 className="mt-3 font-serif text-5xl font-semibold sm:text-7xl">Plan a trip that feels like yours.</h1><p className="mt-4 max-w-3xl text-lg leading-8 text-slate-200">Collect places, shape each day, and keep the useful details in one private plan.</p></div></section>
+    <section className="relative isolate overflow-hidden bg-[#0b3447] py-20 text-white"><Image src="/images/travel/commons/gallery/leh-ladakh-3.jpg" alt="" fill priority className="-z-20 object-cover object-center" sizes="100vw" /><div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#061f2c]/95 via-[#0b3447]/70 to-[#0b3447]/15" /><div className="section-shell relative"><p className="text-xs font-bold uppercase tracking-[.22em] text-emerald-200">One journey, one workspace</p><h1 className="mt-3 font-serif text-5xl font-semibold sm:text-7xl">Plan a trip that feels like yours.</h1><p className="mt-4 max-w-3xl text-lg leading-8 text-slate-100">Collect places, shape each day, and keep the useful details in one private plan.</p></div></section>
     <div className="section-shell grid gap-8 pt-9 lg:grid-cols-[250px_minmax(0,1fr)]">
       <aside className="h-fit rounded-[1.75rem] border border-slate-200 bg-white p-4 shadow-sm"><div className="flex items-center justify-between px-2 py-2"><h2 className="font-serif text-2xl font-semibold text-[#123a50]">My trips</h2><Link href="/plan" className="grid size-9 place-items-center rounded-full bg-[#e96536] text-white" title="New trip" aria-label="New trip"><Plus size={18} /></Link></div><div className="mt-2 space-y-1">{trips.map((item) => <Link key={item.id} href={`/plan?trip=${item.id}`} className={`block rounded-xl px-3 py-3 text-sm transition ${item.id === trip.id ? "bg-[#e8f5f0] font-bold text-[#0d6d67]" : "text-slate-600 hover:bg-slate-50"}`}><span className="block truncate">{item.title}</span><span className="mt-1 block text-xs font-normal text-slate-400">{item.start_date} · {item.stops?.length ?? 0} stops</span></Link>)}{!trips.length && <p className="px-3 py-4 text-sm leading-6 text-slate-500">Your first saved trip will appear here.</p>}</div><Link href="/destinations" className="mt-4 flex items-center gap-2 border-t border-slate-100 px-3 pt-4 text-sm font-semibold text-[#0d6d67]"><Compass size={16} /> Explore destinations</Link></aside>
 
