@@ -26,6 +26,7 @@
 html { scroll-behavior: smooth; }
 body { background: var(--background); color: var(--foreground); }
 ::selection { background: #bce5df; color: #073b3a; }
+@keyframes nav-sweep { 0% { transform: translateX(-110%); } 100% { transform: translateX(330%); } }
 .section-shell { @apply mx-auto max-w-7xl px-5 lg:px-8; }
 .eyebrow { @apply text-xs font-bold uppercase tracking-[0.22em] text-[#0d6d67]; }
 .travely-marker { background: transparent; border: 0; }

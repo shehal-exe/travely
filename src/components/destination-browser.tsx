@@ -44,11 +44,11 @@ export function DestinationBrowser({ destinations, initialQuery = "", initialCat
 
   return (
     <>
-      <div className="grid grid-cols-3 gap-1 rounded-2xl bg-[#eef2ed] p-1.5 sm:max-w-2xl" aria-label="Destination views">
-        {tabs.map((tab) => <button key={tab.id} type="button" aria-pressed={view === tab.id} onClick={() => setView(tab.id)} className={`min-h-11 rounded-xl px-2 py-2 text-xs font-semibold transition sm:px-4 sm:text-sm ${view === tab.id ? "bg-white text-[#0d6d67] shadow-sm" : "text-slate-600 hover:text-[#123a50]"}`}>{tab.label}</button>)}
+      <div className="mx-auto grid w-full grid-cols-3 gap-1.5 rounded-[1.4rem] bg-[#eef2ed] p-1.5" aria-label="Destination views">
+        {tabs.map((tab) => <button key={tab.id} type="button" aria-pressed={view === tab.id} onClick={() => setView(tab.id)} className={`flex min-h-14 items-center justify-center rounded-2xl px-2 py-3 text-center text-xs font-semibold transition sm:px-5 sm:text-sm ${view === tab.id ? "bg-white text-[#0d6d67] shadow-sm ring-1 ring-slate-200/70" : "text-slate-600 hover:bg-white/55 hover:text-[#123a50]"}`}>{tab.label}</button>)}
       </div>
 
-      {view !== "routes" && <div className="mt-6 max-w-4xl">
+      {view !== "routes" && <div className="mt-6 w-full">
         <div className="flex flex-col gap-3 sm:flex-row">
           <div className="relative flex-1"><Search className="absolute left-4 top-3.5 text-slate-400" size={20} /><Input value={query} onChange={(event) => setQuery(event.target.value)} className="pl-12" placeholder="Search a place, state or interest…" aria-label="Search destinations" /></div>
           <details className="group relative rounded-xl border border-slate-200 bg-white sm:min-w-36"><summary className="flex min-h-12 cursor-pointer list-none items-center justify-center gap-2 px-4 text-sm font-semibold text-[#123a50] marker:hidden"><SlidersHorizontal size={17} /> Filters{category !== "all" && <span className="rounded-full bg-[#e8f5f0] px-2 py-0.5 text-xs text-[#0d6d67]">1</span>}</summary><div className="absolute right-0 top-full z-30 mt-2 w-[min(90vw,440px)] rounded-2xl border border-slate-200 bg-white p-5 shadow-xl"><div className="grid gap-3 sm:grid-cols-2">
