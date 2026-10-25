@@ -1,0 +1,37 @@
+TRAVELY TECHNOLOGY STACK
+Reviewed: 25 October 2026
+
+Frontend and application
+- Next.js App Router 16.4.3+
+- React and React DOM 19.3.0
+- TypeScript 5+
+- Tailwind CSS 4+
+- Framer Motion 14.2+
+- Lucide React icons
+
+Backend and data
+- Supabase PostgreSQL, Authentication, Storage, and Row Level Security
+- @supabase/supabase-js 2.117+
+- @supabase/ssr 0.12+
+- React Hook Form 7.90+
+- Zod 4.6+
+
+Maps and discovery
+- Leaflet 1.9+
+- React Leaflet 5+
+- OpenStreetMap coordinates and map tiles
+- Wikidata destination records
+- Wikimedia Commons media and credits
+
+Testing and delivery
+- Vitest 5+
+- Playwright 1.64+
+- ESLint 9+
+- Git and GitHub
+- Vercel hosting
+
+Production: https://travely-henna.vercel.app
+Repository: https://github.com/shehal-exe/travely
+Development branch: feature/travely-social-network
+
+See docs/TECH_STACK.md for the detailed version table and configuration notes.

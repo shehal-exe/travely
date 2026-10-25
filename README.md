@@ -6,6 +6,19 @@ TRAVELY is a production-oriented travel journal and destination-discovery applic
 
 The app supports public and private travel memories, multi-image uploads, destination discovery, maps, profiles, likes, saves, reporting, personal statistics, and administrator-managed destinations.
 
+## Documentation
+
+- [Technology stack](docs/TECH_STACK.md)
+- [Architecture](docs/ARCHITECTURE.md)
+- [Features and routes](docs/FEATURES_AND_ROUTES.md)
+- [Local setup](docs/SETUP.md)
+- [Database and Supabase](docs/DATABASE.md)
+- [Data and media sources](docs/DATA_SOURCES.md)
+- [Testing and quality](docs/TESTING.md)
+- [Deployment](docs/DEPLOYMENT.md)
+
+A plain-text summary is also available in [`TECH_STACK.txt`](TECH_STACK.txt).
+
 ## Features
 
 - Responsive landing page with destination and story discovery
@@ -56,11 +69,7 @@ When Supabase is not configured, public marketing pages show a small set of clea
 
    `SUPABASE_SERVICE_ROLE_KEY` is documented for trusted maintenance scripts only. The application does not expose or require it in browser code.
 
-3. In the Supabase SQL editor, run:
-
-   - `supabase/migrations/202610130001_initial_schema.sql`
-   - `supabase/migrations/202610200001_india_destination_metadata.sql`
-   - `supabase/seed.sql`
+3. Apply every SQL file in `supabase/migrations/` in filename order, then run `supabase/seed.sql` when starter destinations are required. The exact migration list is maintained in [docs/DATABASE.md](docs/DATABASE.md).
 
 4. In Supabase Authentication settings:
 
@@ -104,7 +113,7 @@ The `/admin` route checks this role server-side, and RLS independently enforces 
 
 ## India destination data
 
-The included India preview catalogue contains 20 representative destinations across heritage, spiritual, mountain, wildlife, beach, nature, city, and hill-station categories. Coordinates are linked to OpenStreetMap; descriptions and highlights are concise TRAVELY editorial summaries.
+The repository contains 37 curated India destination records and 475 Wikidata-derived open records. Runtime assembly deduplicates them by place name and supplements live Supabase records without replacing existing database entries. The catalogue spans heritage, spiritual, mountain, wildlife, beach, nature, city, food, and hill-station categories. Coordinates are source-linked; descriptions and highlights are concise TRAVELY editorial summaries.
 
 The architecture is ready to grow state by state. A production ingestion job should normalize OpenStreetMap/Overpass points of interest, enrich selected records with Wikidata and properly attributed Wikimedia Commons media, and then store reviewed records in Supabase. Do not query the public Nominatim service as browser autocomplete or bulk-download all Indian POIs: its public usage policy requires identified, rate-limited, cacheable user-triggered requests. Opening hours and fees should remain administrator-verified fields because they change frequently.
 
