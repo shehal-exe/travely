@@ -1,43 +1,41 @@
 "use client";
 
 import { GeoJSON } from "react-leaflet";
-import type { Feature, GeoJsonObject, GeoJsonProperties, Geometry } from "geojson";
+import type { Feature, FeatureCollection, GeoJsonObject, MultiPolygon, Polygon, Position } from "geojson";
 import indiaBoundary from "@/data/maps/india-adm0.json";
 import indiaStates from "@/data/maps/india-adm1.json";
 
-const outline = indiaBoundary as GeoJsonObject;
+const outlineCollection = indiaBoundary as FeatureCollection<MultiPolygon>;
+const outline = outlineCollection as GeoJsonObject;
 const states = indiaStates as GeoJsonObject;
 
-const mountainStates = new Set(["IN-AR", "IN-HP", "IN-JK", "IN-SK", "IN-UK"]);
-const aridStates = new Set(["IN-GJ", "IN-RJ"]);
-const coastalStates = new Set(["IN-AN", "IN-AP", "IN-GA", "IN-KA", "IN-KL", "IN-LD", "IN-OR", "IN-PY", "IN-TN", "IN-WB"]);
 const labelledStates = new Set(["IN-AP", "IN-AS", "IN-GJ", "IN-KA", "IN-MH", "IN-MP", "IN-OR", "IN-RJ", "IN-TN", "IN-UP", "IN-WB"]);
 
-function stateFill(feature?: Feature<Geometry, GeoJsonProperties>) {
-  const iso = feature?.properties?.shapeISO as string | undefined;
-  if (iso && mountainStates.has(iso)) return "#b9d7b0";
-  if (iso && aridStates.has(iso)) return "#e9d5a5";
-  if (iso && coastalStates.has(iso)) return "#b9d9ca";
-  return "#d8dfb8";
-}
+const maskEdge: Position[] = [[40, -10], [125, -10], [125, 55], [40, 55], [40, -10]];
+const indiaHoles = outlineCollection.features[0].geometry.coordinates.map((polygon) => [...polygon[0]].reverse());
+const indiaMask: Feature<Polygon> = {
+  type: "Feature",
+  properties: {},
+  geometry: { type: "Polygon", coordinates: [maskEdge, ...indiaHoles] },
+};
 
 export function IndiaMapShape() {
   return (
     <>
       <GeoJSON
-        data={outline}
+        data={indiaMask}
         interactive={false}
-        style={{ color: "#0b5d56", fillColor: "#f7f0df", fillOpacity: 1, opacity: 1, weight: 2.8 }}
+        style={{ className: "india-satellite-mask", color: "transparent", fillColor: "#0d3a4a", fillOpacity: 1, fillRule: "evenodd", opacity: 0, weight: 0 }}
       />
       <GeoJSON
         data={states}
-        style={(feature) => ({
+        style={() => ({
           className: "india-state",
-          color: "#ffffff",
-          fillColor: stateFill(feature),
-          fillOpacity: 0.95,
-          opacity: 0.9,
-          weight: 1.15,
+          color: "#f7f3e8",
+          fillColor: "#ffffff",
+          fillOpacity: 0.02,
+          opacity: 0.78,
+          weight: 1,
         })}
         onEachFeature={(feature, layer) => {
           const name = feature.properties?.shapeName;
@@ -54,7 +52,7 @@ export function IndiaMapShape() {
       <GeoJSON
         data={outline}
         interactive={false}
-        style={{ className: "india-boundary", color: "#0b5d56", fillOpacity: 0, opacity: 1, weight: 2.8 }}
+        style={{ className: "india-boundary", color: "#fff7e3", fillOpacity: 0, opacity: 1, weight: 2.8 }}
       />
     </>
   );

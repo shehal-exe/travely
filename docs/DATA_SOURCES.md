@@ -22,6 +22,7 @@ Curated and open records are deduplicated by name when assembled for the public 
 | Wikimedia Commons | Destination, category, gallery, and story photography | The licence and creator attached to each file page |
 | Wikipedia | Optional destination gallery enrichment and background reading links | Individual article/source terms apply |
 | geoBoundaries | India ADM0 coastline and ADM1 state/union-territory geography used by destination and circuit maps | <https://www.geoboundaries.org/>; ADM0 is CC0 1.0 and ADM1 is CC BY 2.5 IN, sourced from DataMeet India community and Election Commission of India |
+| Esri World Imagery | Live satellite and aerial imagery clipped to the India boundary in destination and circuit maps | <https://www.arcgis.com/home/item.html?id=10df2279f9684e4a9f6a7f08febac2a9>; imagery © Esri and listed providers |
 
 Media attribution records are stored in:
 
