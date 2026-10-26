@@ -10,7 +10,7 @@ import { IndiaMapShape } from "@/components/maps/india-map-shape";
 import { MapInteractionControls } from "@/components/maps/map-interaction-controls";
 import type { Destination } from "@/types/database";
 
-const icon = L.divIcon({ className: "travely-marker-dot", html: '<span aria-hidden="true"></span>', iconSize: [12, 12], iconAnchor: [6, 6] });
+const icon = L.divIcon({ className: "travely-marker-dot", html: '<span aria-hidden="true"></span>', iconSize: [9, 9], iconAnchor: [4.5, 4.5] });
 
 function MapController({ destinations, expanded }: { destinations: Destination[]; expanded: boolean }) {
   const map = useMap();

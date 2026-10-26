@@ -47,6 +47,7 @@ test("destination and circuit maps stay inside the India view", async ({ page })
   await expect(destinationMap).toBeVisible({ timeout: 20_000 });
   await expect(destinationMap).toHaveAttribute("aria-label", "Interactive map of India destinations");
   await expect(destinationMap.locator("path.india-boundary")).toBeVisible();
+  await expect(destinationMap.locator("path.india-state")).toHaveCount(36);
   await expect(destinationMap.locator(".leaflet-tile-pane img")).toHaveCount(0);
   const zoomOut = page.getByRole("button", { name: "Zoom out" });
   for (let step = 0; step < 8; step += 1) await zoomOut.click({ force: true });
@@ -57,6 +58,7 @@ test("destination and circuit maps stay inside the India view", async ({ page })
   await expect(routeMap).toBeVisible({ timeout: 20_000 });
   await expect(routeMap).toHaveAttribute("aria-label", "Interactive India route map");
   await expect(routeMap.locator("path.india-boundary")).toBeVisible();
+  await expect(routeMap.locator("path.india-state")).toHaveCount(36);
   await expect(routeMap.locator(".leaflet-tile-pane img")).toHaveCount(0);
   for (let step = 0; step < 8; step += 1) await page.getByRole("button", { name: "Zoom out" }).click({ force: true });
   await expect.poll(async () => Number(await routeMap.getAttribute("data-zoom"))).toBeGreaterThanOrEqual(4);
