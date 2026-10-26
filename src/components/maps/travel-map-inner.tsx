@@ -5,11 +5,10 @@ import { useEffect } from "react";
 import L from "leaflet";
 import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
 import Link from "next/link";
+import { INDIA_BOUNDS, INDIA_CENTER, INDIA_MIN_ZOOM } from "@/components/maps/india-map-config";
 import { MapInteractionControls } from "@/components/maps/map-interaction-controls";
 import type { Destination } from "@/types/database";
 
-const indiaCenter: [number, number] = [22.8, 79.4];
-const indiaBounds: L.LatLngBoundsExpression = [[5.5, 67], [38.5, 99.5]];
 const icon = L.divIcon({ className: "travely-marker", html: '<span aria-hidden="true"></span>', iconSize: [28, 28], iconAnchor: [14, 14] });
 
 function MapController({ destinations, expanded }: { destinations: Destination[]; expanded: boolean }) {
@@ -23,7 +22,7 @@ function MapController({ destinations, expanded }: { destinations: Destination[]
   useEffect(() => {
     const points = destinations.flatMap((item) => item.latitude != null && item.longitude != null ? [[item.latitude, item.longitude] as [number, number]] : []);
     if (!points.length) {
-      map.setView(indiaCenter, 4);
+      map.fitBounds(INDIA_BOUNDS, { padding: [28, 28] });
       return;
     }
     if (points.length === 1) {
@@ -41,10 +40,10 @@ export default function TravelMapInner({ destinations, expanded }: { destination
   const points = mappedDestinations.map((item) => [item.latitude!, item.longitude!] as [number, number]);
   return (
     <div className={`w-full transition-[height] duration-500 ${expanded ? "h-[72vh] min-h-[560px]" : "h-[460px]"}`}>
-      <MapContainer center={indiaCenter} zoom={4} minZoom={3} maxZoom={18} maxBounds={indiaBounds} maxBoundsViscosity={0.75} scrollWheelZoom touchZoom doubleClickZoom dragging keyboard keyboardPanDelta={120} boxZoom zoomControl={false} zoomSnap={0.25} zoomDelta={0.5} wheelDebounceTime={25} wheelPxPerZoomLevel={120} bounceAtZoomLimits={false} className="h-full w-full" aria-label="Interactive map of India destinations">
-        <TileLayer attribution='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+      <MapContainer center={INDIA_CENTER} zoom={INDIA_MIN_ZOOM} minZoom={INDIA_MIN_ZOOM} maxZoom={18} maxBounds={INDIA_BOUNDS} maxBoundsViscosity={1} scrollWheelZoom touchZoom doubleClickZoom dragging keyboard keyboardPanDelta={120} boxZoom zoomControl={false} zoomSnap={0.25} zoomDelta={0.5} wheelDebounceTime={25} wheelPxPerZoomLevel={120} bounceAtZoomLimits={false} className="h-full w-full bg-[#dfeae5]" aria-label="Interactive map of India destinations">
+        <TileLayer bounds={INDIA_BOUNDS} noWrap attribution='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <MapController destinations={destinations} expanded={expanded} />
-        <MapInteractionControls points={points} fallback={indiaCenter} label="Interactive map of India destinations" />
+        <MapInteractionControls points={points} fallback={INDIA_CENTER} label="Interactive map of India destinations" />
         {mappedDestinations.map((destination) => (
           <Marker key={destination.id} position={[destination.latitude!, destination.longitude!]} icon={icon}>
             <Popup>

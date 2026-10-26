@@ -40,6 +40,22 @@ test("destination search, map, and circuits work", async ({ page }) => {
   await expect(page.getByRole("link", { name: /Make this route my trip/i })).toBeVisible();
 });
 
+test("destination and circuit maps stay inside the India view", async ({ page }) => {
+  test.setTimeout(90_000);
+  await page.goto("/destinations?view=map", { waitUntil: "domcontentloaded" });
+  const destinationMap = page.getByLabel("Interactive map of India destinations");
+  await expect(destinationMap).toBeVisible();
+  const zoomOut = page.getByRole("button", { name: "Zoom out" });
+  for (let step = 0; step < 8; step += 1) await zoomOut.click({ force: true });
+  await expect.poll(async () => Number(await destinationMap.getAttribute("data-zoom"))).toBeGreaterThanOrEqual(4);
+
+  await page.goto("/routes/golden-triangle", { waitUntil: "domcontentloaded" });
+  const routeMap = page.getByLabel("Interactive India route map");
+  await expect(routeMap).toBeVisible();
+  for (let step = 0; step < 8; step += 1) await page.getByRole("button", { name: "Zoom out" }).click({ force: true });
+  await expect.poll(async () => Number(await routeMap.getAttribute("data-zoom"))).toBeGreaterThanOrEqual(4);
+});
+
 test("home and about videos plus key destination photos load", async ({ page, request }) => {
   const clips = ["taj-mahal", "munnar", "amritsar", "ladakh", "cherrapunji", "udaipur", "kerala", "rishikesh", "mumbai"];
   for (const clip of clips) {
