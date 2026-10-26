@@ -21,6 +21,7 @@ Curated and open records are deduplicated by name when assembled for the public 
 | Wikidata | Place names, types, administrative location, coordinates, rank, identifiers, and article links | <https://www.wikidata.org/wiki/Wikidata:Licensing> |
 | Wikimedia Commons | Destination, category, gallery, and story photography | The licence and creator attached to each file page |
 | Wikipedia | Optional destination gallery enrichment and background reading links | Individual article/source terms apply |
+| geoBoundaries | Standalone India ADM0 vector outline used by destination and circuit maps | <https://www.geoboundaries.org/>; included source geometry is CC0 1.0 |
 
 Media attribution records are stored in:
 

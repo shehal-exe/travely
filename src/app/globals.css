@@ -31,7 +31,13 @@ body { background: var(--background); color: var(--foreground); }
 .eyebrow { @apply text-xs font-bold uppercase tracking-[0.22em] text-[#0d6d67]; }
 .travely-marker { background: transparent; border: 0; }
 .travely-marker span { display: block; width: 28px; height: 28px; border: 5px solid white; border-radius: 999px 999px 999px 4px; background: var(--travely-green); box-shadow: 0 8px 18px rgb(15 23 42 / .25); transform: rotate(-45deg); }
+.travely-marker-dot { background: transparent; border: 0; }
+.travely-marker-dot span { display: block; width: 12px; height: 12px; border: 2px solid white; border-radius: 999px; background: #f26335; box-shadow: 0 2px 7px rgb(15 23 42 / .3); transition: transform .2s ease, background-color .2s ease; }
+.travely-marker-dot:hover span, .travely-marker-dot:focus span { background: #0b5d56; transform: scale(1.55); }
 .leaflet-container { z-index: 0; font-family: "Inter", "Segoe UI", sans-serif; }
+.leaflet-container.india-vector-map { background: radial-gradient(circle at 50% 44%, #dff3ee 0%, #c4e3dc 48%, #a8d1ca 100%); }
+.india-vector-map .leaflet-overlay-pane svg { filter: drop-shadow(0 16px 18px rgb(5 60 57 / .2)); }
+.india-vector-map .india-boundary { vector-effect: non-scaling-stroke; }
 .leaflet-container:focus-visible { outline: 3px solid #0d6d67; outline-offset: -3px; }
 .travely-map-controls { display: grid; overflow: hidden; border: 1px solid rgb(255 255 255 / .8); border-radius: 14px; background: rgb(255 255 255 / .96); box-shadow: 0 10px 30px rgb(15 23 42 / .18); }
 .leaflet-bottom.leaflet-right .travely-map-controls { margin-right: 14px; margin-bottom: 34px; }

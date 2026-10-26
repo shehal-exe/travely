@@ -43,15 +43,21 @@ test("destination search, map, and circuits work", async ({ page }) => {
 test("destination and circuit maps stay inside the India view", async ({ page }) => {
   test.setTimeout(90_000);
   await page.goto("/destinations?view=map", { waitUntil: "domcontentloaded" });
-  const destinationMap = page.getByLabel("Interactive map of India destinations");
-  await expect(destinationMap).toBeVisible();
+  const destinationMap = page.locator(".leaflet-container");
+  await expect(destinationMap).toBeVisible({ timeout: 20_000 });
+  await expect(destinationMap).toHaveAttribute("aria-label", "Interactive map of India destinations");
+  await expect(destinationMap.locator("path.india-boundary")).toBeVisible();
+  await expect(destinationMap.locator(".leaflet-tile-pane img")).toHaveCount(0);
   const zoomOut = page.getByRole("button", { name: "Zoom out" });
   for (let step = 0; step < 8; step += 1) await zoomOut.click({ force: true });
   await expect.poll(async () => Number(await destinationMap.getAttribute("data-zoom"))).toBeGreaterThanOrEqual(4);
 
   await page.goto("/routes/golden-triangle", { waitUntil: "domcontentloaded" });
-  const routeMap = page.getByLabel("Interactive India route map");
-  await expect(routeMap).toBeVisible();
+  const routeMap = page.locator(".leaflet-container");
+  await expect(routeMap).toBeVisible({ timeout: 20_000 });
+  await expect(routeMap).toHaveAttribute("aria-label", "Interactive India route map");
+  await expect(routeMap.locator("path.india-boundary")).toBeVisible();
+  await expect(routeMap.locator(".leaflet-tile-pane img")).toHaveCount(0);
   for (let step = 0; step < 8; step += 1) await page.getByRole("button", { name: "Zoom out" }).click({ force: true });
   await expect.poll(async () => Number(await routeMap.getAttribute("data-zoom"))).toBeGreaterThanOrEqual(4);
 });

@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import L from "leaflet";
 import { useMap } from "react-leaflet";
 
-export function MapInteractionControls({ points, fallback, singleZoom = 9, label = "Interactive travel map" }: { points: [number, number][]; fallback: [number, number]; singleZoom?: number; label?: string }) {
+export function MapInteractionControls({ points, fallback, resetBounds, singleZoom = 9, label = "Interactive travel map" }: { points: [number, number][]; fallback: [number, number]; resetBounds?: L.LatLngBoundsExpression; singleZoom?: number; label?: string }) {
   const map = useMap();
 
   useEffect(() => {
@@ -12,7 +12,8 @@ export function MapInteractionControls({ points, fallback, singleZoom = 9, label
     mapContainer.setAttribute("aria-label", label);
     const updateZoomState = () => { mapContainer.dataset.zoom = map.getZoom().toFixed(2); };
     const resetView = () => {
-      if (!points.length) map.flyTo(fallback, 4, { duration: 0.6 });
+      if (resetBounds) map.flyToBounds(resetBounds, { padding: [34, 34], duration: 0.6 });
+      else if (!points.length) map.flyTo(fallback, 4, { duration: 0.6 });
       else if (points.length === 1) map.flyTo(points[0], singleZoom, { duration: 0.6 });
       else map.flyToBounds(L.latLngBounds(points), { padding: [55, 55], maxZoom: 8, duration: 0.6 });
     };
@@ -49,7 +50,7 @@ export function MapInteractionControls({ points, fallback, singleZoom = 9, label
       map.off("zoomend", updateZoomState);
       control.remove();
     };
-  }, [fallback, label, map, points, singleZoom]);
+  }, [fallback, label, map, points, resetBounds, singleZoom]);
 
   return (
     <div className="travely-map-hint pointer-events-none leaflet-control" aria-hidden="true">
