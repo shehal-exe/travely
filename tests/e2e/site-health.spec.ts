@@ -40,28 +40,24 @@ test("destination search, map, and circuits work", async ({ page }) => {
   await expect(page.getByRole("link", { name: /Make this route my trip/i })).toBeVisible();
 });
 
-test("destination and circuit maps stay inside the India view", async ({ page }) => {
+test("destination and circuit maps use the original OpenStreetMap setup", async ({ page }) => {
   test.setTimeout(90_000);
   await page.goto("/destinations?view=map", { waitUntil: "domcontentloaded" });
   const destinationMap = page.locator(".leaflet-container");
   await expect(destinationMap).toBeVisible({ timeout: 20_000 });
   await expect(destinationMap).toHaveAttribute("aria-label", "Interactive map of India destinations");
-  await expect(destinationMap.locator("path.india-boundary")).toBeVisible();
-  await expect(destinationMap.locator("path.india-state")).toHaveCount(36);
-  await expect(destinationMap.locator(".leaflet-tile-pane img")).toHaveCount(0);
+  await expect(destinationMap.locator(".leaflet-tile-pane img").first()).toBeVisible();
   const zoomOut = page.getByRole("button", { name: "Zoom out" });
   for (let step = 0; step < 8; step += 1) await zoomOut.click({ force: true });
-  await expect.poll(async () => Number(await destinationMap.getAttribute("data-zoom"))).toBeGreaterThanOrEqual(4);
+  await expect.poll(async () => Number(await destinationMap.getAttribute("data-zoom"))).toBeGreaterThanOrEqual(3);
 
   await page.goto("/routes/golden-triangle", { waitUntil: "domcontentloaded" });
   const routeMap = page.locator(".leaflet-container");
   await expect(routeMap).toBeVisible({ timeout: 20_000 });
-  await expect(routeMap).toHaveAttribute("aria-label", "Interactive India route map");
-  await expect(routeMap.locator("path.india-boundary")).toBeVisible();
-  await expect(routeMap.locator("path.india-state")).toHaveCount(36);
-  await expect(routeMap.locator(".leaflet-tile-pane img")).toHaveCount(0);
+  await expect(routeMap).toHaveAttribute("aria-label", "Interactive route map");
+  await expect(routeMap.locator(".leaflet-tile-pane img").first()).toBeVisible();
   for (let step = 0; step < 8; step += 1) await page.getByRole("button", { name: "Zoom out" }).click({ force: true });
-  await expect.poll(async () => Number(await routeMap.getAttribute("data-zoom"))).toBeGreaterThanOrEqual(4);
+  await expect.poll(async () => Number(await routeMap.getAttribute("data-zoom"))).toBeGreaterThanOrEqual(3);
 });
 
 test("home and about videos plus key destination photos load", async ({ page, request }) => {
