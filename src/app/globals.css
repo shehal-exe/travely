@@ -35,15 +35,14 @@ body { background: var(--background); color: var(--foreground); }
 .travely-marker-dot span { display: block; width: 9px; height: 9px; border: 1.5px solid white; border-radius: 999px; background: #f26335; box-shadow: 0 2px 6px rgb(15 23 42 / .28); transition: transform .2s ease, background-color .2s ease; }
 .travely-marker-dot:hover span, .travely-marker-dot:focus span { background: #0b5d56; transform: scale(1.55); }
 .leaflet-container { z-index: 0; font-family: "Inter", "Segoe UI", sans-serif; }
-.leaflet-container.india-vector-map { background: radial-gradient(circle at 50% 44%, #174e5f 0%, #0d3a4a 58%, #082b39 100%); }
-.india-vector-map .leaflet-tile-pane { filter: saturate(1.12) contrast(1.04) brightness(.98); }
+.leaflet-container.india-vector-map { background: radial-gradient(circle at 50% 44%, #dff3ee 0%, #c4e3dc 48%, #a8d1ca 100%); }
 .india-vector-map .leaflet-overlay-pane svg { filter: drop-shadow(0 16px 18px rgb(5 60 57 / .2)); }
 .india-vector-map .india-boundary { vector-effect: non-scaling-stroke; }
 .india-vector-map .india-state { cursor: pointer; vector-effect: non-scaling-stroke; transition: fill .18s ease, fill-opacity .18s ease; }
-.india-vector-map .india-state:hover { fill: #f26335; fill-opacity: .28; }
+.india-vector-map .india-state:hover { fill: #f4c985; fill-opacity: 1; }
 .leaflet-tooltip.india-state-tooltip { border: 0; border-radius: 10px; background: #123a50; color: white; font-size: 12px; font-weight: 700; box-shadow: 0 8px 20px rgb(15 23 42 / .22); }
 .leaflet-tooltip.india-state-tooltip::before { border-top-color: #123a50; }
-.leaflet-tooltip.india-state-label { border: 0; border-radius: 0; padding: 0; background: transparent; color: white; font-size: 8px; font-weight: 800; letter-spacing: .02em; line-height: 1; text-transform: uppercase; box-shadow: none; text-shadow: 0 1px 3px rgb(0 0 0 / .95), 1px 0 2px rgb(0 0 0 / .95), 0 -1px 2px rgb(0 0 0 / .95), -1px 0 2px rgb(0 0 0 / .95); }
+.leaflet-tooltip.india-state-label { border: 0; border-radius: 0; padding: 0; background: transparent; color: #234c43; font-size: 8px; font-weight: 800; letter-spacing: .02em; line-height: 1; text-transform: uppercase; box-shadow: none; text-shadow: 0 1px 0 rgb(255 255 255 / .95), 1px 0 0 rgb(255 255 255 / .95), 0 -1px 0 rgb(255 255 255 / .95), -1px 0 0 rgb(255 255 255 / .95); }
 .leaflet-tooltip.india-state-label::before { display: none; }
 .leaflet-container:focus-visible { outline: 3px solid #0d6d67; outline-offset: -3px; }
 .travely-map-controls { display: grid; overflow: hidden; border: 1px solid rgb(255 255 255 / .8); border-radius: 14px; background: rgb(255 255 255 / .96); box-shadow: 0 10px 30px rgb(15 23 42 / .18); }

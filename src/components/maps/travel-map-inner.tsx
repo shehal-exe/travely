@@ -3,7 +3,7 @@
 import "leaflet/dist/leaflet.css";
 import { useEffect } from "react";
 import L from "leaflet";
-import { MapContainer, Marker, Popup, TileLayer, useMap } from "react-leaflet";
+import { MapContainer, Marker, Popup, useMap } from "react-leaflet";
 import Link from "next/link";
 import { INDIA_BOUNDS, INDIA_CENTER, INDIA_MIN_ZOOM } from "@/components/maps/india-map-config";
 import { IndiaMapShape } from "@/components/maps/india-map-shape";
@@ -35,7 +35,6 @@ export default function TravelMapInner({ destinations, expanded }: { destination
       style={{ height: expanded ? "max(560px, 72vh)" : "460px" }}
     >
       <MapContainer center={INDIA_CENTER} zoom={INDIA_MIN_ZOOM} minZoom={INDIA_MIN_ZOOM} maxZoom={18} maxBounds={INDIA_BOUNDS} maxBoundsViscosity={1} scrollWheelZoom touchZoom doubleClickZoom dragging keyboard keyboardPanDelta={120} boxZoom zoomControl={false} attributionControl={false} zoomSnap={0.25} zoomDelta={0.5} wheelDebounceTime={25} wheelPxPerZoomLevel={120} bounceAtZoomLimits={false} className="india-vector-map h-full w-full" style={{ height: "100%", width: "100%" }} aria-label="Interactive map of India destinations">
-        <TileLayer bounds={INDIA_BOUNDS} noWrap maxNativeZoom={19} url="https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />
         <IndiaMapShape />
         <MapController destinations={destinations} expanded={expanded} />
         <MapInteractionControls points={points} fallback={INDIA_CENTER} resetBounds={INDIA_BOUNDS} label="Interactive map of India destinations" />
