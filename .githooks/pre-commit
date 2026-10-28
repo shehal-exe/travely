@@ -1,0 +1,11 @@
+#!/bin/sh
+
+branch="$(git branch --show-current)"
+
+if [ "$branch" != "clone/travely-current" ]; then
+  echo "TRAVELY safeguard: commits are allowed only on clone/travely-current during development." >&2
+  echo "Switch with: git switch clone/travely-current" >&2
+  exit 1
+fi
+
+exit 0

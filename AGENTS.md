@@ -7,3 +7,12 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## TRAVELY Git workflow
+
+- Use `clone/travely-current` as the exclusive development branch.
+- Before modifying project files, verify that `clone/travely-current` is active.
+- Do not commit, merge, or push development work to `main`.
+- Do not update `main` until the user explicitly confirms that TRAVELY development is complete and explicitly requests promotion to `main`.
+- Preserve `main` history; never force-push, reset, overwrite, or delete it.
+- Keep all interim development commits and deployments on `clone/travely-current`.

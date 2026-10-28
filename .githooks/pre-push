@@ -1,0 +1,11 @@
+#!/bin/sh
+
+while read local_ref local_sha remote_ref remote_sha; do
+  if [ "$remote_ref" = "refs/heads/main" ]; then
+    echo "TRAVELY safeguard: pushes to main are blocked during development." >&2
+    echo "Only remove this safeguard after the user explicitly confirms development is complete." >&2
+    exit 1
+  fi
+done
+
+exit 0
