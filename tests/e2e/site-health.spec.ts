@@ -68,7 +68,7 @@ test("home and about videos plus key destination photos load", async ({ page, re
     expect(response.headers()["content-type"], `${clip} should be an MP4`).toContain("video/mp4");
   }
   await page.goto("/");
-  const homeVideo = page.locator("video[src='/videos/about-india.mp4']");
+  const homeVideo = page.locator("section[aria-labelledby='home-hero-heading'] video").first();
   await expect.poll(async () => homeVideo.evaluate((video: HTMLVideoElement) => video.videoWidth), { timeout: 15_000 }).toBeGreaterThan(0);
   await page.goto("/about");
   const aboutVideo = page.locator("video[src='/videos/taj-mahal.mp4']");

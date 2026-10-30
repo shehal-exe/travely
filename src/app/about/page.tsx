@@ -20,7 +20,7 @@ export default function AboutPage() {
           <Reveal y={18}>
             <div className="max-w-3xl">
               <p className="text-xs font-bold uppercase tracking-[0.22em] text-emerald-200">About TRAVELY</p>
-              <h1 className="mt-4 font-serif text-5xl font-semibold leading-[1.08] sm:text-7xl">A meaningful home for the journeys that shape us.</h1>
+              <h1 className="section-title mt-4 font-serif font-semibold">A meaningful home for the journeys that shape us.</h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-white/85">TRAVELY brings personal travel journaling and thoughtful discovery together—so a photograph becomes a story, and a story becomes someone else&apos;s inspiration.</p>
               <Link href="#contact" className={buttonClasses({ variant: "secondary", size: "lg", className: "mt-8" })}>Contact & collaborations <ArrowRight size={18} /></Link>
             </div>
@@ -28,19 +28,19 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[#eef5f2] py-20 lg:py-24" aria-labelledby="values-heading">
+      <section className="paper-texture py-20 lg:py-24" aria-labelledby="values-heading">
         <div className="section-shell">
           <Reveal>
             <div className="mx-auto max-w-2xl text-center">
               <p className="eyebrow">What brings us together</p>
-              <h2 id="values-heading" className="mt-3 font-serif text-4xl font-semibold text-[#123a50] sm:text-5xl">Travel with meaning at every step.</h2>
+              <h2 id="values-heading" className="section-title mt-3 font-serif font-semibold text-[#123a50]">Travel with meaning at every step.</h2>
             </div>
           </Reveal>
           <div className="mt-12 grid gap-5 md:grid-cols-3">
             {values.map(({ Icon, title, text }, index) => (
               <Reveal key={title} delay={index * 0.08}>
-                <article className="min-h-64 rounded-[1.75rem] border border-[#dbe6e2] bg-white p-8 shadow-[0_18px_45px_rgba(18,58,80,.07)]">
-                  <span className="grid size-14 place-items-center rounded-2xl bg-[#edf6f3] text-[#0d6d67]"><Icon size={25} /></span>
+                <article className="min-h-64 border-t border-[#c8d7d1] bg-transparent p-6 pt-8">
+                  <span className="grid size-12 place-items-center rounded-full border border-[#9fc5ba] text-[#0d6d67]"><Icon size={23} /></span>
                   <h3 className="mt-6 font-serif text-2xl font-semibold text-[#123a50]">{title}</h3>
                   <p className="mt-3 leading-7 text-slate-600">{text}</p>
                 </article>

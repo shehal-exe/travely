@@ -7,6 +7,7 @@ import { useRef, useState } from "react";
 import { ArrowRight, MapPin, Search } from "lucide-react";
 
 const heroPoster = "/videos/hero-poster.jpg";
+const placeNames = ["Delhi", "Agra", "Jaipur", "Varanasi", "Munnar", "Goa", "Leh–Ladakh", "Shillong", "Kochi", "Varkala", "Cherrapunji", "Hampi"];
 
 export function Hero() {
   const router = useRouter();
@@ -18,82 +19,100 @@ export function Hero() {
   const contentY = useTransform(scrollYProgress, [0, 1], [0, -24]);
 
   return (
-    <section ref={heroRef} className="relative isolate min-h-[calc(100svh-76px)] overflow-hidden bg-[#0b3447] text-white">
-      <motion.div className="pointer-events-none absolute -inset-10" style={reduceMotion ? undefined : { y: backgroundY }}>
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${heroPoster})` }} />
-        {!reduceMotion && (
-          <video
-            className="absolute inset-0 size-full object-cover saturate-[1.12] contrast-[1.04]"
-            src="/videos/about-india.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            poster={heroPoster}
-            aria-hidden
-          />
-        )}
-      </motion.div>
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,29,42,.94),rgba(5,35,50,.68)_55%,rgba(5,35,50,.2))]" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#061f2d]/70 via-transparent to-transparent" />
+    <>
+      <section ref={heroRef} aria-labelledby="home-hero-heading" className="relative isolate min-h-[min(860px,calc(100svh-76px))] overflow-hidden bg-[#0b3447] text-white">
+        <motion.div className="pointer-events-none absolute -inset-10" style={reduceMotion ? undefined : { y: backgroundY }}>
+          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${heroPoster})` }} />
+          {!reduceMotion && (
+            <video
+              className="absolute inset-0 size-full object-cover saturate-[1.12] contrast-[1.04]"
+              src="/videos/about-india.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              poster={heroPoster}
+              aria-hidden
+            />
+          )}
+        </motion.div>
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,29,42,.96),rgba(5,35,50,.74)_52%,rgba(5,35,50,.22))]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#061f2d]/70 via-transparent to-transparent" />
+        <div className="absolute inset-y-0 left-[68%] hidden w-px bg-white/20 xl:block" aria-hidden />
 
-      <div className="section-shell relative flex min-h-[calc(100svh-76px)] items-center py-14 lg:py-16">
-        <div className="w-full">
-          <motion.div style={reduceMotion ? undefined : { y: contentY }} className="max-w-3xl">
-            <motion.p
-              initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="mb-5 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-200"
-            >
-              <MapPin size={16} aria-hidden /> India, at your own pace
-            </motion.p>
-            <motion.h1
-              initial={reduceMotion ? false : { opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className="font-serif text-[2.8rem] font-semibold leading-[1.04] sm:text-6xl lg:text-[4.7rem]"
-            >
-              Discover India.<br /><em className="font-normal text-emerald-200">Make every mile yours.</em>
-            </motion.h1>
-            <motion.p
-              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.18 }}
-              className="mt-6 max-w-2xl text-base leading-7 text-slate-100 sm:text-lg sm:leading-8"
-            >
-              Explore destination guides, interactive maps, ready-made routes, real trip budgets, and traveller stories—all in one place.
-            </motion.p>
-            <motion.form
-              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.26 }}
-              onSubmit={(event) => { event.preventDefault(); const value = query.trim(); router.push(value ? `/destinations?q=${encodeURIComponent(value)}` : "/destinations"); }}
-              className="mt-8 flex max-w-2xl flex-col gap-2 rounded-[1.25rem] border border-white/25 bg-white/95 p-2 shadow-2xl shadow-black/20 backdrop-blur sm:flex-row"
-            >
-              <label className="relative flex-1">
-                <span className="sr-only">Search destinations</span>
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#0d6d67]" size={19} aria-hidden />
-                <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search Goa, Ladakh, Varanasi…" className="min-h-12 w-full rounded-xl bg-transparent pl-12 pr-4 text-[#123a50] outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-[#0d6d67]/20" />
-              </label>
-              <button type="submit" className="min-h-12 rounded-xl bg-[#0d6d67] px-6 text-sm font-bold text-white transition hover:bg-[#095b57] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Find a place <ArrowRight size={17} className="ml-1 inline" aria-hidden /></button>
-            </motion.form>
-            <motion.div
-              initial={reduceMotion ? false : { opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.38 }}
-              className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-semibold text-white/90"
-            >
-              <Link href="/destinations" className="inline-flex items-center gap-1.5 hover:underline">Explore destinations <ArrowRight size={15} aria-hidden /></Link>
-              <Link href="/destinations?view=routes" className="hover:underline">Browse routes</Link>
-              <Link href="/explore" className="hover:underline">Read travel stories</Link>
+        <div className="section-shell relative flex min-h-[min(860px,calc(100svh-76px))] items-center py-14 lg:py-16">
+          <div className="w-full">
+            <motion.div style={reduceMotion ? undefined : { y: contentY }} className="max-w-3xl">
+              <motion.p
+                initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="mb-5 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-emerald-200"
+              >
+                <MapPin size={16} aria-hidden /> India, at your own pace
+              </motion.p>
+              <motion.h1
+                id="home-hero-heading"
+                initial={reduceMotion ? false : { opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+                className="display-title max-w-[13ch] font-serif font-semibold"
+              >
+                Discover India.<br /><em className="font-normal text-emerald-200">Make every mile yours.</em>
+              </motion.h1>
+              <motion.p
+                initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.18 }}
+                className="mt-6 max-w-2xl text-base leading-7 text-slate-100 sm:text-lg sm:leading-8"
+              >
+                Explore destination guides, interactive maps, ready-made routes, real trip budgets, and traveller stories—all in one place.
+              </motion.p>
+              <motion.form
+                initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.26 }}
+                onSubmit={(event) => { event.preventDefault(); const value = query.trim(); router.push(value ? `/destinations?q=${encodeURIComponent(value)}` : "/destinations"); }}
+                className="mt-8 flex max-w-2xl flex-col gap-2 rounded-[1.1rem] border border-white/30 bg-white/95 p-2 shadow-2xl shadow-black/20 backdrop-blur sm:flex-row"
+              >
+                <label className="relative flex-1">
+                  <span className="sr-only">Search destinations</span>
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#0d6d67]" size={19} aria-hidden />
+                  <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Search Goa, Ladakh, Varanasi…" className="min-h-12 w-full rounded-xl bg-transparent pl-12 pr-4 text-[#123a50] outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-[#0d6d67]/20" />
+                </label>
+                <button type="submit" className="min-h-12 rounded-xl bg-[#0d6d67] px-6 text-sm font-bold text-white transition hover:bg-[#095b57] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Find a place <ArrowRight size={17} className="ml-1 inline" aria-hidden /></button>
+              </motion.form>
+              <motion.div
+                initial={reduceMotion ? false : { opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.7, delay: 0.38 }}
+                className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-semibold text-white/90"
+              >
+                <Link href="/destinations" className="inline-flex items-center gap-1.5 hover:underline">Explore destinations <ArrowRight size={15} aria-hidden /></Link>
+                <Link href="/destinations?view=routes" className="hover:underline">Browse routes</Link>
+                <Link href="/explore" className="hover:underline">Read travel stories</Link>
+              </motion.div>
             </motion.div>
-
-          </motion.div>
-
+            <motion.aside
+              initial={reduceMotion ? false : { opacity: 0, x: 18 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.45 }}
+              className="absolute bottom-10 right-8 hidden w-64 border-l border-white/30 pl-5 xl:block"
+              aria-label="TRAVELY experience"
+            >
+              <p className="text-[10px] font-bold uppercase tracking-[.24em] text-emerald-200">India in motion</p>
+              <p className="mt-3 font-serif text-2xl leading-tight">A living canvas for every journey.</p>
+              <p className="mt-3 text-sm leading-6 text-white/65">Cinematic destination footage, practical guides, and traveller stories—kept together.</p>
+            </motion.aside>
+          </div>
+        </div>
+      </section>
+      <div className="place-ticker overflow-x-auto border-b border-[#dce4df] bg-[#f6f1e8]" aria-label="Featured places across India">
+        <div className="mx-auto flex min-w-max max-w-7xl items-center gap-7 px-5 py-4 lg:px-8">
+          {placeNames.map((name, index) => <span key={name} className="flex items-center gap-7 text-[10px] font-bold uppercase tracking-[.24em] text-[#52656f]">{index > 0 && <span className="size-1 rounded-full bg-[#c95d38]" aria-hidden />}{name}</span>)}
         </div>
       </div>
-    </section>
+    </>
   );
 }

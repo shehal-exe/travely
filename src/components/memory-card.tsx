@@ -11,10 +11,10 @@ export function MemoryCard({ memory }: { memory: TravelMemory }) {
   const isPreview = !/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(memory.id);
 
   return (
-    <Link href={`/memories/${memory.id}`} className="group flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-[#e8e9e3] bg-white transition duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#123a50]/10">
+    <Link href={`/memories/${memory.id}`} className="media-card group flex h-full flex-col overflow-hidden rounded-[1.15rem] border border-[#dfe6e1] bg-white">
       <div className="relative aspect-[16/10] overflow-hidden bg-[#e9eee9]">
         {image && <Image src={image} alt={memory.title} fill className="object-cover transition duration-700 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 50vw" />}
-        {isPreview && <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1.5 text-xs font-semibold text-[#123a50]">Sample story</span>}
+        {isPreview && <span className="absolute left-4 top-4 rounded-full bg-[#faf8f3]/95 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[.14em] text-[#123a50]">Sample story</span>}
       </div>
       <div className="flex flex-1 flex-col p-5 sm:p-6">
         <div className="flex items-start justify-between gap-4"><h3 className="font-serif text-2xl font-semibold text-[#123a50]">{memory.title}</h3><ArrowUpRight size={19} className="mt-1 shrink-0 text-[#0d6d67] transition group-hover:-translate-y-1 group-hover:translate-x-1" /></div>

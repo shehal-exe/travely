@@ -29,24 +29,24 @@ export default async function Home() {
       <Hero />
       <CoreFeaturePath />
 
-      <section className="bg-[#f4f8f6] py-20 lg:py-28" aria-labelledby="places-heading">
+      <section className="bg-[#f3f6f2] py-20 lg:py-28" aria-labelledby="places-heading">
         <div className="section-shell">
           <Reveal>
             <div className="mb-9 flex flex-wrap items-end justify-between gap-4">
               <div>
                 <p className="eyebrow">Begin somewhere beautiful</p>
-                <h2 id="places-heading" className="mt-3 max-w-2xl font-serif text-4xl font-semibold text-[#123a50] sm:text-5xl">
-                  India, in its many colours.
+                <h2 id="places-heading" className="section-title mt-3 max-w-3xl font-serif font-semibold text-[#123a50]">
+                  India, in its <em className="font-normal text-[#c95d38]">many colours.</em>
                 </h2>
               </div>
-              <Link href="/destinations" className="inline-flex items-center gap-2 text-sm font-semibold text-[#0d6d67] hover:underline">
+              <Link href="/destinations" className="editorial-link text-[#0d6d67]">
                 Explore every destination <ArrowUpRight size={17} aria-hidden />
               </Link>
             </div>
           </Reveal>
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-3">
             {places.map((destination, index) => (
-              <Reveal key={destination.id} delay={index * 0.08}>
+              <Reveal key={destination.id} delay={index * 0.08} direction={index === 0 ? "left" : index === places.length - 1 ? "right" : "up"}>
                 <DestinationCard destination={destination} priority={index === 0} />
               </Reveal>
             ))}
@@ -61,21 +61,21 @@ export default async function Home() {
           <div className="mb-9 flex flex-wrap items-end justify-between gap-4">
             <div>
               <p className="eyebrow">Start with a feeling</p>
-              <h2 id="moods-heading" className="mt-3 font-serif text-4xl font-semibold text-[#123a50] sm:text-5xl">
-                What calls you away?
+              <h2 id="moods-heading" className="section-title mt-3 font-serif font-semibold text-[#123a50]">
+                What <em className="font-normal text-[#c95d38]">calls you away?</em>
               </h2>
             </div>
-            <Link href="/categories" className="inline-flex items-center gap-2 text-sm font-semibold text-[#0d6d67] hover:underline">
+            <Link href="/categories" className="editorial-link text-[#0d6d67]">
               All travel styles <ArrowUpRight size={17} aria-hidden />
             </Link>
           </div>
         </Reveal>
         <div className="grid gap-4 md:grid-cols-3">
           {moods.map((guide, index) => (
-            <Reveal key={guide.name} delay={index * 0.08}>
+            <Reveal key={guide.name} delay={index * 0.08} direction={index === 0 ? "left" : index === moods.length - 1 ? "right" : "up"}>
               <Link
                 href={`/destinations?category=${encodeURIComponent(guide.slug)}`}
-                className="group relative isolate flex min-h-[340px] items-end overflow-hidden rounded-[1.5rem] bg-[#123a50] p-7 text-white"
+                className="group relative isolate flex min-h-[360px] items-end overflow-hidden rounded-[1.15rem] bg-[#123a50] p-7 text-white"
               >
                 <Image src={guide.image} alt="" fill className="-z-20 object-cover transition duration-700 group-hover:scale-105" sizes="(max-width: 768px) 100vw, 33vw" />
                 <div className="absolute inset-0 -z-10 bg-gradient-to-t from-[#071f2d]/90 via-[#071f2d]/20 to-transparent" />
@@ -92,24 +92,24 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="border-y border-slate-200/70 bg-white py-20 lg:py-28" aria-labelledby="stories-heading">
+      <section className="border-y border-[#dce4df] bg-white py-20 lg:py-28" aria-labelledby="stories-heading">
         <div className="section-shell">
           <Reveal>
             <div className="mb-9 flex flex-wrap items-end justify-between gap-4">
               <div>
                 <p className="eyebrow">From fellow travellers</p>
-                <h2 id="stories-heading" className="mt-3 font-serif text-4xl font-semibold text-[#123a50] sm:text-5xl">
-                  The story behind the place.
+                <h2 id="stories-heading" className="section-title mt-3 font-serif font-semibold text-[#123a50]">
+                  The story <em className="font-normal text-[#c95d38]">behind the place.</em>
                 </h2>
               </div>
-              <Link href="/explore" className="inline-flex items-center gap-2 text-sm font-semibold text-[#0d6d67] hover:underline">
+              <Link href="/explore" className="editorial-link text-[#0d6d67]">
                 Explore community stories <ArrowUpRight size={17} aria-hidden />
               </Link>
             </div>
           </Reveal>
           <div className="grid gap-5 md:grid-cols-2">
             {memories.slice(0, 2).map((memory, index) => (
-              <Reveal key={memory.id} delay={index * 0.08}>
+              <Reveal key={memory.id} delay={index * 0.08} direction={index === 0 ? "left" : "right"}>
                 <MemoryCard memory={memory} />
               </Reveal>
             ))}
@@ -119,7 +119,7 @@ export default async function Home() {
 
       <section className="section-shell py-20 lg:py-28">
         <Reveal>
-          <div className="grid overflow-hidden rounded-[1.75rem] bg-[#0b3447] text-white shadow-[0_24px_70px_rgba(18,58,80,.18)] lg:grid-cols-2">
+          <div className="group grid overflow-hidden rounded-[1.25rem] bg-[#0b3447] text-white shadow-[0_24px_70px_rgba(18,58,80,.14)] lg:grid-cols-2">
             <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-16">
               <p className="text-xs font-semibold uppercase tracking-[.2em] text-emerald-200">When inspiration becomes a plan</p>
               <h2 className="mt-4 max-w-lg font-serif text-4xl font-semibold leading-tight sm:text-5xl">Make the journey your own.</h2>
@@ -134,7 +134,7 @@ export default async function Home() {
               </div>
             </div>
             <div className="relative min-h-[330px] lg:min-h-[480px]">
-              <Image src="/images/travel/varanasi-1.jpg" alt="Morning light over the ghats of Varanasi" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+              <Image src="/images/travel/varanasi-1.jpg" alt="Morning light over the ghats of Varanasi" fill className="object-cover transition duration-1000 group-hover:scale-[1.04]" sizes="(max-width: 1024px) 100vw, 50vw" />
             </div>
           </div>
         </Reveal>

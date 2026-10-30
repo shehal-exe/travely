@@ -83,16 +83,16 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#dbe6e2] bg-white/95 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[#dbe6e2] bg-[#faf8f3]/95 backdrop-blur-xl">
       <div className="mx-auto flex h-[76px] max-w-7xl items-center justify-between px-5 lg:px-8">
-        <Link href="/" className="flex items-center gap-2.5 text-lg font-black tracking-[0.14em] text-[#123a50]">
-          <span className="grid size-9 place-items-center rounded-full bg-[#0d6d67] text-white"><Compass size={18} /></span>
+        <Link href="/" className="flex items-center gap-2.5 font-serif text-xl font-semibold tracking-[0.16em] text-[#123a50]">
+          <span className="grid size-9 place-items-center rounded-full border border-[#0d6d67] text-[#0d6d67]"><Compass size={17} /></span>
           TRAVELY
         </Link>
         <nav className="hidden items-center gap-2 lg:flex" aria-label="Primary navigation">
           {links.map((item) => (
             <div key={item.label} className="group relative">
-              <Link href={item.href} onClick={(event) => beginNavigation(item.href, event)} aria-current={pathname === item.href || ("children" in item && item.children.some((child) => pathname === child.href.split("?")[0])) ? "page" : undefined} aria-haspopup={"children" in item ? "menu" : undefined} className="flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold text-[#314957] transition hover:bg-[#edf6f3] hover:text-[#0d6d67] aria-[current=page]:bg-[#edf6f3] aria-[current=page]:text-[#0d6d67]">
+              <Link href={item.href} onClick={(event) => beginNavigation(item.href, event)} aria-current={pathname === item.href || ("children" in item && item.children.some((child) => pathname === child.href.split("?")[0])) ? "page" : undefined} aria-haspopup={"children" in item ? "menu" : undefined} className="flex items-center gap-1.5 rounded-full px-4 py-2 text-xs font-bold uppercase tracking-[.12em] text-[#314957] transition hover:bg-[#edf6f3] hover:text-[#0d6d67] aria-[current=page]:bg-[#edf6f3] aria-[current=page]:text-[#0d6d67]">
                 {item.label}
                 {"children" in item && <ChevronDown size={14} aria-hidden />}
               </Link>
@@ -127,7 +127,7 @@ export function Header() {
       </div>
       {navigating && <div role="status" aria-label="Opening page" className="absolute inset-x-0 bottom-0 h-1 overflow-hidden bg-[#dceae6]"><span className="block h-full w-1/3 bg-gradient-to-r from-[#123a50] to-[#0d6d67] motion-safe:animate-[nav-sweep_1s_ease-in-out_infinite]" /></div>}
       {open && (
-        <nav className="border-t border-slate-100 bg-white px-5 py-5 lg:hidden" aria-label="Mobile navigation">
+        <nav className="border-t border-slate-100 bg-[#faf8f3] px-5 py-5 lg:hidden" aria-label="Mobile navigation">
           <div className="mx-auto flex max-w-7xl flex-col gap-2">
             {links.map((item) => (
               <div key={item.label}>

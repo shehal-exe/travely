@@ -1,14 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fbfdfc;
+  --background: #faf8f3;
   --foreground: #172b36;
   --travely-navy: #123a50;
   --travely-navy-deep: #082f3d;
   --travely-green: #0d6d67;
   --travely-green-dark: #095b57;
   --travely-mint: #edf6f3;
-  --travely-surface: #f4f8f6;
+  --travely-surface: #f3f6f2;
+  --travely-paper: #faf8f3;
+  --travely-clay: #c95d38;
+  --travely-line: #dce4df;
 }
 @theme inline {
   --color-background: var(--background);
@@ -29,6 +32,16 @@ body { background: var(--background); color: var(--foreground); }
 @keyframes nav-sweep { 0% { transform: translateX(-110%); } 100% { transform: translateX(330%); } }
 .section-shell { @apply mx-auto max-w-7xl px-5 lg:px-8; }
 .eyebrow { @apply text-xs font-bold uppercase tracking-[0.22em] text-[#0d6d67]; }
+.display-title { font-size: clamp(2.65rem, 6vw, 5.9rem); line-height: .98; letter-spacing: -.035em; }
+.section-title { font-size: clamp(2.35rem, 4.4vw, 4.35rem); line-height: 1.04; letter-spacing: -.025em; }
+.editorial-rule { border-color: var(--travely-line); }
+.editorial-link { display: inline-flex; align-items: center; gap: .45rem; border-bottom: 1px solid currentColor; padding-bottom: .28rem; font-size: .72rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+.editorial-link:hover { color: var(--travely-clay); }
+.paper-texture { background-color: var(--travely-paper); background-image: radial-gradient(rgb(18 58 80 / .035) .65px, transparent .65px); background-size: 6px 6px; }
+.media-card { transition: transform .45s cubic-bezier(.22, 1, .36, 1), box-shadow .45s ease, border-color .3s ease; }
+.media-card:hover { transform: translateY(-5px); border-color: rgb(13 109 103 / .32); box-shadow: 0 24px 60px rgb(18 58 80 / .1); }
+.place-ticker { scrollbar-width: none; }
+.place-ticker::-webkit-scrollbar { display: none; }
 .travely-marker { background: transparent; border: 0; }
 .travely-marker span { display: block; width: 28px; height: 28px; border: 5px solid white; border-radius: 999px 999px 999px 4px; background: var(--travely-green); box-shadow: 0 8px 18px rgb(15 23 42 / .25); transform: rotate(-45deg); }
 .leaflet-container { z-index: 0; font-family: "Inter", "Segoe UI", sans-serif; }
